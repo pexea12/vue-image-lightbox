@@ -5,7 +5,12 @@
       <img :src="image.thumb" @click="showLightBox(index)">
     </div>
     <div class="vue-ig-modal">
-      <img :src="images[select].src">
+      <img :src="images[select].src" class="vue-ig-modal-image">
+      <ul v-if="thumbnail" class="vue-ig-modal-thumbs">
+        <li v-for="(image, index) in images">
+          <img :src="image.thumb">
+        </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -18,9 +23,14 @@
         required: true,
       },
 
-      thumbnail: {
-        default: true,
+      comment: {
         type: Boolean,
+        default: false,
+      },
+
+      thumbnail: {
+        type: Boolean,
+        default: true,
       },
     },
 
@@ -52,6 +62,10 @@
   .vue-ig-modal {
     /*display: none;*/
     background-color: black;
+  }
+
+  .vue-ig-modal ul.vue-ig-modal-thumbs li {
+    display: inline-block;
   }
 
   .vue-ig-modal img {

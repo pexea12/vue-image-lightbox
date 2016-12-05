@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" style="background-color: red">
     <h1>Testing</h1>
     <gallery :images="images"></gallery>
   </div>
