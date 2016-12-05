@@ -92,6 +92,14 @@
 
   .vue-lb-modal figure.vue-lb-modal-figure img.vue-lb-modal-image {
     cursor: pointer;
+    display: block;
+    height: auto;
+    margin: 0 auto;
+    max-width: 100%;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
   }
 
 
@@ -117,7 +125,4 @@
     box-shadow: inset 0 0 0 1px hsla(0, 0%, 100%, .2);
   }
 
-  .vue-lb-modal img {
-    width: 200px;
-  }
 </style>
