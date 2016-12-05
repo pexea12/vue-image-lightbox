@@ -5,7 +5,7 @@
       <img :src="image.thumb" @click="showLightBox(index)">
     </div>
     <div class="vue-ig-modal">
-      <img src="http://www.planwallpaper.com/static/images/desktop-year-of-the-tiger-images-wallpaper.jpg">
+      <img :src="images[select].src">
     </div>
   </div>
 </template>
@@ -19,18 +19,20 @@
       },
 
       thumbnail: {
+        default: true,
         type: Boolean,
       },
     },
 
     data() {
       return {
+        select: 0,
       }
     },
 
     methods: {
       showLightBox(index) {
-        alert(index)
+        this.$set(this, 'select', index)
       }
     }
   }
