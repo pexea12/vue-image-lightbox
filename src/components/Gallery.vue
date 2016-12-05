@@ -1,20 +1,22 @@
 <template>
-  <div class="vue-ig-box">
+  <div class="vue-lb-box">
     <h1>Hello World</h1>
-    <div v-for="(image, index) in images" class="vue-ig-image">
+    <div v-for="(image, index) in images" class="vue-lb-image">
       <img :src="image.thumb" @click="showLightBox(index)" >
-    </div> <!-- .vue-ig-image -->
-    <div class="vue-ig-modal">
-      <img :src="images[select].src" class="vue-ig-modal-image">
-      <div v-if="thumbnail" class="vue-ig-modal-thumbs">
+    </div> <!-- .vue-lb-image -->
+    <div class="vue-lb-modal">
+      <figure class="vue-lb-modal-figure">
+        <img :src="images[select].src" class="vue-lb-modal-image">
+      </figure>
+      <div v-if="thumbnail" class="vue-lb-modal-thumbs">
         <div v-for="(image, index) in images" 
-             class="vue-ig-modal-thumbnail" 
+             class="vue-lb-modal-thumbnail" 
              :style="`background-image: url('${ image.thumb }')`"
         >
         </div>
-      </div> <!-- .vue-ig-modal-thumbs -->
-    </div> <!-- .vue-ig-modal -->
-  </div> <!-- .vue-ig-box -->
+      </div> <!-- .vue-lb-modal-thumbs -->
+    </div> <!-- .vue-lb-modal -->
+  </div> <!-- .vue-lb-box -->
 </template>
 
 <script>
@@ -51,20 +53,20 @@
 </script>
 
 <style scoped>
-  .vue-ig-box {
+  .vue-lb-box {
     width: 100%;
   }
-  .vue-ig-box .vue-ig-image {
+  .vue-lb-box .vue-lb-image {
     display: inline-block;
     margin: 5px;
   }
 
-  .vue-ig-box .vue-ig-image img:hover {
+  .vue-lb-box .vue-lb-image img:hover {
     cursor: pointer;
     opacity: 1;
     filter: alpha(opacity=100);
   }
-  .vue-ig-box .vue-ig-image img {
+  .vue-lb-box .vue-lb-image img {
     vertical-align: middle;
     display: block;
     width: 100px;
@@ -74,12 +76,12 @@
     filter: alpha(opacity=80);
   }
 
-  .vue-ig-modal {
+  .vue-lb-modal {
     /*display: none;*/
     background-color: black;
   }
 
-  .vue-ig-modal .vue-ig-modal-thumbs {
+  .vue-lb-modal .vue-lb-modal-thumbs {
     bottom: 10px;
     height: 50px;
     padding: 0 50px;
@@ -88,7 +90,7 @@
     white-space: nowrap
   }
 
-  .vue-ig-modal .vue-ig-modal-thumbs .vue-ig-modal-thumbnail {
+  .vue-lb-modal .vue-lb-modal-thumbs .vue-lb-modal-thumbnail {
     display: inline-block;
     background-position: center;
     background-size: cover;
@@ -101,7 +103,7 @@
     box-shadow: inset 0 0 0 1px hsla(0, 0%, 100%, .2);
   }
 
-  .vue-ig-modal img {
+  .vue-lb-modal img {
     width: 200px;
   }
 </style>
