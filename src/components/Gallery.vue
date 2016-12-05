@@ -6,11 +6,13 @@
     </div> <!-- .vue-ig-image -->
     <div class="vue-ig-modal">
       <img :src="images[select].src" class="vue-ig-modal-image">
-      <ul v-if="thumbnail" class="vue-ig-modal-thumbs">
-        <li v-for="(image, index) in images">
-          <img :src="image.thumb">
-        </li>
-      </ul> <!-- .vue-ig-modal-thumbs -->
+      <div v-if="thumbnail" class="vue-ig-modal-thumbs">
+        <div v-for="(image, index) in images" 
+             class="vue-ig-modal-thumbnail" 
+             :style="`background-image: url('${ image.thumb }')`"
+        >
+        </div>
+      </div> <!-- .vue-ig-modal-thumbs -->
     </div> <!-- .vue-ig-modal -->
   </div> <!-- .vue-ig-box -->
 </template>
@@ -77,8 +79,26 @@
     background-color: black;
   }
 
-  .vue-ig-modal ul.vue-ig-modal-thumbs li {
+  .vue-ig-modal .vue-ig-modal-thumbs {
+    bottom: 10px;
+    height: 50px;
+    padding: 0 50px;
+    position: absolute;
+    text-align: center;
+    white-space: nowrap
+  }
+
+  .vue-ig-modal .vue-ig-modal-thumbs .vue-ig-modal-thumbnail {
     display: inline-block;
+    background-position: center;
+    background-size: cover;
+    border-radius: 2px;
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    margin: 2px;
+    overflow: hidden;
+    box-shadow: inset 0 0 0 1px hsla(0, 0%, 100%, .2);
   }
 
   .vue-ig-modal img {
