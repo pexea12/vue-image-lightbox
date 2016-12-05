@@ -1,7 +1,9 @@
 <template>
-  <div id="app" style="background-color: red">
+  <div id="app" style="background-color: yellow" class="row">
     <h1>Testing</h1>
-    <gallery :images="images"></gallery>
+    <div class="col-lg-4">
+      <gallery :images="images"></gallery>
+    </div>
   </div>
 </template>
 
