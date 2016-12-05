@@ -81,6 +81,20 @@
     background-color: black;
   }
 
+  .vue-lb-modal figure.vue-lb-modal-figure {
+    margin: 0px;
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 40px;
+    -webkit-margin-end: 40px;
+  }
+
+  .vue-lb-modal figure.vue-lb-modal-figure img.vue-lb-modal-image {
+    cursor: pointer;
+  }
+
+
   .vue-lb-modal .vue-lb-modal-thumbs {
     bottom: 10px;
     height: 50px;
