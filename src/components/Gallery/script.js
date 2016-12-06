@@ -26,19 +26,20 @@ export default {
 
   methods: {
     showImage(index) {
+      this.$set(this, 'lightBoxOn', true)
       this.$set(this, 'select', index)
     },
 
     closeLightBox() {
-      this.lightBoxOn = false
+      this.$set(this, 'lightBoxOn', false)
     },
 
     nextImage() {
-      this.$set(this, 'select', (this.select + 1) % countImages)
+      this.$set(this, 'select', (this.select + 1) % this.countImages)
     },
 
     previousImage() {
-      this.$set(this, 'select', ((this.select - 1) + countImages) % countImages)
+      this.$set(this, 'select', ((this.select - 1) + this.countImages) % this.countImages)
     }
   }
 }
