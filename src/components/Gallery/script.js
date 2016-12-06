@@ -25,7 +25,7 @@ export default {
   },
 
   methods: {
-    showLightBox(index) {
+    showImage(index) {
       this.$set(this, 'select', index)
     },
 
