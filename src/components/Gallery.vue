@@ -24,21 +24,54 @@
           </div> <!-- .vue-lb-footer -->
         </div> <!-- .vue-lb-modal-figure -->
       </div> <!-- .vue-lb-content -->
+
+      <div v-if="thumbnail" class="vue-lb-thumbnail">
+        <button type="button" class="vue-lb-thumbnail-arrow vue-lb-thumbnail-left" style="height: 54px; width: 40px;">
+          <span>
+            <svg fill="white" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 512 512" xml:space="preserve">
+              <path d="M213.7,256L213.7,256L213.7,256L380.9,81.9c4.2-4.3,4.1-11.4-0.2-15.8l-29.9-30.6c-4.3-4.4-11.3-4.5-15.5-0.2L131.1,247.9 c-2.2,2.2-3.2,5.2-3,8.1c-0.1,3,0.9,5.9,3,8.1l204.2,212.7c4.2,4.3,11.2,4.2,15.5-0.2l29.9-30.6c4.3-4.4,4.4-11.5,0.2-15.8 L213.7,256z"></path>
+            </svg>
+          </span>
+        </button>
+        <div v-for="(image, index) in images" 
+             class="vue-lb-modal-thumbnail" 
+             :style="`background-image: url('${ image.thumb }')`"
+             @click="showLightBox(index)"
+        >
+        </div> <!-- .vue-lb-modal-thumbail -->
+        <button type="button" class="vue-lb-thumbnail-arrow vue-lb-thumbnail-right" title="Previous (Right arrow key)" style="height: 54px; width: 40px;">
+          <span>
+            <svg fill="white" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 512 512" xml:space="preserve">
+              <path d="M298.3,256L298.3,256L298.3,256L131.1,81.9c-4.2-4.3-4.1-11.4,0.2-15.8l29.9-30.6c4.3-4.4,11.3-4.5,15.5-0.2l204.2,212.7 c2.2,2.2,3.2,5.2,3,8.1c0.1,3-0.9,5.9-3,8.1L176.7,476.8c-4.2,4.3-11.2,4.2-15.5-0.2L131.3,446c-4.3-4.4-4.4-11.5-0.2-15.8 L298.3,256z"></path>
+            </svg>
+          </span>
+        </button>
+      </div> <!-- .vue-lb-thumbnail -->
+
+      <button type="button" class="arrow_1d5fttb-o_O-arrow__direction__left_shhpn5-o_O-arrow__size__medium_9f7hgo" title="Previous (Left arrow key)">
+        <span>
+          <svg fill="white" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 512 512" xml:space="preserve">
+            <path d="M213.7,256L213.7,256L213.7,256L380.9,81.9c4.2-4.3,4.1-11.4-0.2-15.8l-29.9-30.6c-4.3-4.4-11.3-4.5-15.5-0.2L131.1,247.9 c-2.2,2.2-3.2,5.2-3,8.1c-0.1,3,0.9,5.9,3,8.1l204.2,212.7c4.2,4.3,11.2,4.2,15.5-0.2l29.9-30.6c4.3-4.4,4.4-11.5,0.2-15.8 L213.7,256z"></path>
+          </svg>
+        </span>
+      </button>
+
+      <button type="button" class="arrow_1d5fttb-o_O-arrow__direction__right_174p6a9-o_O-arrow__size__medium_9f7hgo" title="Previous (Right arrow key)">
+        <span>
+          <svg fill="white" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 512 512" xml:space="preserve">
+            <path d="M298.3,256L298.3,256L298.3,256L131.1,81.9c-4.2-4.3-4.1-11.4,0.2-15.8l29.9-30.6c4.3-4.4,11.3-4.5,15.5-0.2l204.2,212.7 c2.2,2.2,3.2,5.2,3,8.1c0.1,3-0.9,5.9-3,8.1L176.7,476.8c-4.2,4.3-11.2,4.2-15.5-0.2L131.3,446c-4.3-4.4-4.4-11.5-0.2-15.8 L298.3,256z"></path>
+          </svg>
+        </span>
+      </button>
     </div> <!-- .vue-lb-container -->
       
-
+    
 
     <div v-for="(image, index) in images" class="vue-lb-image">
       <img :src="image.thumb" @click="showLightBox(index)" >
     </div> <!-- .vue-lb-image -->
     <div class="vue-lb-modal">
-      <div v-if="thumbnail" class="vue-lb-modal-thumbs">
-        <div v-for="(image, index) in images" 
-             class="vue-lb-modal-thumbnail" 
-             :style="`background-image: url('${ image.thumb }')`"
-        >
-        </div>
-      </div> <!-- .vue-lb-modal-thumbs -->
+      
     </div> <!-- .vue-lb-modal -->
   </div> <!-- .vue-lb-box -->
 </template>
@@ -148,6 +181,108 @@
     -webkit-margin-end: 40px;
   }
 
+  .vue-lb-figure img.vue-lb-modal-image {
+    cursor: pointer;
+    max-height: calc(100vh - 140px);
+    cursor: pointer;
+    display: block;
+    height: auto;
+    margin: 0 auto;
+    max-width: 100%;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+
+  .vue-lb-footer {
+    box-sizing: border-box;
+    color: white;
+    cursor: auto;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-between;
+    left: 0px;
+    line-height: 1.3;
+    padding-bottom: 5px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 5px;
+    -moz-box-sizing: border-box;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    -webkit-box-pack: justify;
+  }
+
+  .vue-lb-footer-info {
+    display: block;
+    flex: 1 1 0;
+    -webkit-flex: 1 1 0;
+    -ms-flex: 1 1 0;
+  }
+
+  .vue-lb-footer-count {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.85em;
+    padding-left: 1em;
+  }
+
+  .vue-lb-thumbnail {
+    bottom: 10px;
+    height: 50px;
+    padding: 0 50px;
+    position: absolute;
+    text-align: center;
+    white-space: nowrap
+  }
+
+  .vue-lb-modal-thumbnail {
+    display: inline-block;
+    background-position: center;
+    background-size: cover;
+    border-radius: 2px;
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    margin: 2px;
+    overflow: hidden;
+    box-shadow: inset 0 0 0 1px hsla(0, 0%, 100%, .2);
+  }
+
+  .vue-lb-thumbnail-arrow {
+    height: 54px;
+    width: 40px;
+    background: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    padding: 10px;
+    position: absolute;
+    top: 50%;
+    -webkit-touch-callout: none;
+    user-select: none;
+    height: 50px;
+    margin-top: -25px;
+    width: 30px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+
+  .vue-lb-thumbnail-left {
+    left: 10px;
+  }
+
+  .vue-lb-thumbnail-right {
+    right: 10px;
+  }
+
+
+
   .vue-lb-box .vue-lb-image {
     display: inline-block;
     margin: 5px;
@@ -174,17 +309,7 @@
 
   
 
-  .vue-lb-box .vue-lb-content div.vue-lb-modal-figure img.vue-lb-modal-image {
-    cursor: pointer;
-    display: block;
-    height: auto;
-    margin: 0 auto;
-    max-width: 100%;
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-  }
+  
 
   .vue-lb-modal {
     /*display: none;*/
@@ -194,26 +319,8 @@
   
 
 
-  .vue-lb-modal .vue-lb-modal-thumbs {
-    bottom: 10px;
-    height: 50px;
-    padding: 0 50px;
-    position: absolute;
-    text-align: center;
-    white-space: nowrap
-  }
-
   .vue-lb-modal .vue-lb-modal-thumbs .vue-lb-modal-thumbnail {
-    display: inline-block;
-    background-position: center;
-    background-size: cover;
-    border-radius: 2px;
-    cursor: pointer;
-    height: 50px;
-    width: 50px;
-    margin: 2px;
-    overflow: hidden;
-    box-shadow: inset 0 0 0 1px hsla(0, 0%, 100%, .2);
+    
   }
 
 </style>
