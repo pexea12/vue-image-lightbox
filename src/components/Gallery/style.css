@@ -44,6 +44,7 @@
   height: 40px;
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
+  -webkit-box-pack: justify;
 }
 
 .vue-lb-button-close {
@@ -63,10 +64,6 @@
 .vue-lb-figure {
   margin: 0px;
   display: block;
-  -webkit-margin-before: 1em;
-  -webkit-margin-after: 1em;
-  -webkit-margin-start: 40px;
-  -webkit-margin-end: 40px;
 }
 
 img.vue-lb-modal-image {

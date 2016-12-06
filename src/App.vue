@@ -11,20 +11,39 @@
 
 let images = [
   {
-    thumb: 'http://keenthemes.com/preview/metronic/theme/assets/global/plugins/jcrop/demos/demo_files/image1.jpg',
-    src: 'http://keenthemes.com/preview/metronic/theme/assets/global/plugins/jcrop/demos/demo_files/image1.jpg',
+    thumb: 'https://images.unsplash.com/photo-1454991727061-be514eae86f7?dpr=2&auto=format&w=1024',
+    src: 'https://images.unsplash.com/photo-1454991727061-be514eae86f7?dpr=2&auto=format&w=1024',
+    caption: '<h4>Hello World</h4>',
   },
   {
-    thumb: 'https://cdn.pixabay.com/photo/2016/03/28/12/35/cat-1285634_960_720.png',
-    src: 'https://cdn.pixabay.com/photo/2016/03/28/12/35/cat-1285634_960_720.png',
+    thumb: 'https://images.unsplash.com/photo-1455717974081-0436a066bb96?dpr=2&auto=format&w=1024',
+    src: 'https://images.unsplash.com/photo-1455717974081-0436a066bb96?dpr=2&auto=format&w=1024',
+    caption: '<h4>Hello World</h4>',
   },
   {
-    thumb: 'http://7606-presscdn-0-74.pagely.netdna-cdn.com/wp-content/uploads/2016/03/Dubai-Photos-Images-Oicture-Dubai-Landmarks-800x600.jpg',
-    src: 'http://7606-presscdn-0-74.pagely.netdna-cdn.com/wp-content/uploads/2016/03/Dubai-Photos-Images-Oicture-Dubai-Landmarks-800x600.jpg',
+    thumb: 'https://images.unsplash.com/photo-1460899960812-f6ee1ecaf117?dpr=2&auto=format&w=1024',
+    src: 'https://images.unsplash.com/photo-1460899960812-f6ee1ecaf117?dpr=2&auto=format&w=1024',
+    caption: '<h4>Hello World</h4>',
   },
   {
-    thumb: 'http://www.w3schools.com/css/img_fjords.jpg',
-    src: 'http://www.w3schools.com/css/img_fjords.jpg',
+    thumb: 'https://images.unsplash.com/photo-1456926631375-92c8ce872def?dpr=2&auto=format&w=1024',
+    src: 'https://images.unsplash.com/photo-1456926631375-92c8ce872def?dpr=2&auto=format&w=1024',
+    caption: '<h4>Hello World</h4>',
+  },
+  {
+    thumb: 'https://images.unsplash.com/photo-1452274381522-521513015433?dpr=2&auto=format&w=1024',
+    src: 'https://images.unsplash.com/photo-1452274381522-521513015433?dpr=2&auto=format&w=1024',
+    caption: '<h4>Hello World</h4>',
+  },
+  {
+    thumb: 'https://images.unsplash.com/photo-1471145653077-54c6f0aae511?dpr=2&auto=format&w=1024',
+    src: 'https://images.unsplash.com/photo-1471145653077-54c6f0aae511?dpr=2&auto=format&w=1024',
+    caption: '<h4>Hello World</h4>',
+  },
+  {
+    thumb: 'https://images.unsplash.com/photo-1471005197911-88e9d4a7834d?dpr=2&auto=format&w=1024',
+    src: 'https://images.unsplash.com/photo-1471005197911-88e9d4a7834d?dpr=2&auto=format&w=1024',
+    caption: '<h4>Hello World</h4>',
   },
 ]
 

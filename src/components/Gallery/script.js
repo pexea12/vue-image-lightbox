@@ -5,6 +5,16 @@ export default {
       required: true,
     },
 
+    show: {
+      type: Boolean,
+      default: true,
+    },
+
+    startAt: {
+      type: Number,
+      default: 0,
+    },
+
     comment: {
       type: Boolean,
       default: false,
@@ -18,8 +28,8 @@ export default {
 
   data() {
     return {
-      select: 0,
-      lightBoxOn: false,
+      select: this.startAt,
+      lightBoxOn: this.show,
       countImages: this.images.length,
     }
   },
