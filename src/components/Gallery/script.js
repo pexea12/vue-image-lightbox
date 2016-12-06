@@ -19,12 +19,26 @@ export default {
   data() {
     return {
       select: 0,
+      lightBoxOn: false,
+      countImages: this.images.length,
     }
   },
 
   methods: {
     showLightBox(index) {
       this.$set(this, 'select', index)
+    },
+
+    closeLightBox() {
+      this.lightBoxOn = false
+    },
+
+    nextImage() {
+      this.$set(this, 'select', (this.select + 1) % countImages)
+    },
+
+    previousImage() {
+      this.$set(this, 'select', ((this.select - 1) + countImages) % countImages)
     }
   }
 }
