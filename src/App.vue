@@ -1,7 +1,7 @@
 <template>
   <div id="app" style="background-color: yellow" class="row">
     <h1>Testing</h1>
-    <div class="col-lg-4">
+    <div class="col-lg-4 col-md-12 col-sm-12">
       <gallery :images="images"></gallery>
     </div>
   </div>
@@ -28,7 +28,7 @@ let images = [
   },
 ]
 
-import Gallery from 'components/Gallery.vue'
+import Gallery from 'components/Gallery'
 
 export default {
   name: 'app',
