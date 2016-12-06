@@ -32,7 +32,7 @@
         </span>
       </button>
       <div v-for="(image, index) in images" 
-           class="vue-lb-modal-thumbnail" 
+           :class="'vue-lb-modal-thumbnail' + (select == index ? '-active' : '')" 
            :style="`background-image: url('${ image.thumb }')`"
            @click="showImage(index)"
       >
