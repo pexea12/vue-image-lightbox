@@ -2,7 +2,7 @@
   <div id="app" style="background-color: yellow" class="row">
     <div class="col-lg-4 col-md-12 col-sm-12">
       <h1>Testing</h1>  
-      
+
       <gallery :images="images"></gallery>
     </div>
   </div>
@@ -44,6 +44,21 @@ let images = [
   {
     thumb: 'https://images.unsplash.com/photo-1471005197911-88e9d4a7834d?dpr=2&auto=format&w=1024',
     src: 'https://images.unsplash.com/photo-1471005197911-88e9d4a7834d?dpr=2&auto=format&w=1024',
+    caption: '<h4>Hello World</h4>',
+  },
+  {
+    thumb: 'https://images.unsplash.com/photo-1470777639313-60af88918203?dpr=2&auto=format&w=1024',
+    src: 'https://images.unsplash.com/photo-1470777639313-60af88918203?dpr=2&auto=format&w=1024',
+    caption: '<h4>Hello World</h4>',
+  },
+  {
+    thumb: 'https://images.unsplash.com/photo-1471127432458-65206be149c9?dpr=2&auto=format&w=1024',
+    src: 'https://images.unsplash.com/photo-1471127432458-65206be149c9?dpr=2&auto=format&w=1024',
+    caption: '<h4>Hello World</h4>',
+  },
+  {
+    thumb: 'https://images.unsplash.com/photo-1471101173712-b9884175254e?dpr=2&auto=format&w=1024',
+    src: 'https://images.unsplash.com/photo-1471101173712-b9884175254e?dpr=2&auto=format&w=1024',
     caption: '<h4>Hello World</h4>',
   },
 ]

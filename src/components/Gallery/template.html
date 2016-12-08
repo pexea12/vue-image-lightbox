@@ -16,9 +16,11 @@
     </div> <!-- .vue-lb-header -->
     <div class="vue-lb-figure">
       <img :src="images[select].src" class="vue-lb-modal-image">
+
+      <div class="vue-lb-info" v-html="images[select].caption"></div>
+
       <div class="vue-lb-footer">
-        <div class="vue-lb-footer-info" v-html="images[select].caption">
-        </div> <!-- .vue-lb-footer-info -->
+        <div class="vue-lb-footer-info"></div>
         <div class="vue-lb-footer-count">
           {{ select + 1 }}/{{ countImages }}
         </div> <!-- .vue-lb-footer-count -->
@@ -26,7 +28,7 @@
     </div> <!-- .vue-lb-modal-figure -->
   </div> <!-- .vue-lb-content -->
 
-  <div v-if="thumbnail" class="vue-lb-thumbnail">
+  <div v-if="showThumbs" class="vue-lb-thumbnail">
     <button type="button" class="vue-lb-thumbnail-arrow vue-lb-thumbnail-left" title="Previous" @click="previousImage">
       <span>
         <svg fill="white" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 512 512" xml:space="preserve">
@@ -34,14 +36,15 @@
         </svg>
       </span>
     </button>
-    
-    <div v-for="(image, index) in images" 
+
+    <div v-for="(image, index) in displayThumbs" 
          :key="image.src"
-         :class="'vue-lb-modal-thumbnail' + (select === index ? '-active' : '')" 
+         :class="'vue-lb-modal-thumbnail' + (thumbSelect === index ? '-active' : '')" 
          :style="`background-image: url('${ image.thumb }')`"
          @click="showImage(index)"
     >
     </div> <!-- .vue-lb-modal-thumbail -->
+
     <button type="button" class="vue-lb-thumbnail-arrow vue-lb-thumbnail-right" title="Next" @click="nextImage">
       <span>
         <svg fill="white" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 512 512" xml:space="preserve">
