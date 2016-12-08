@@ -1,13 +1,29 @@
 {
   "name": "vue-image-gallery",
-  "description": "A Vue.js project",
+  "description": "A Vue.js package to display an image gallery lightbox",
   "version": "1.0.0",
   "author": "Nguyen Thien Dzung <dzungnguyenvn@outlook.com>",
-  "private": true,
+  "license": "MIT",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --inline --hot",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pexea12/vue-image-lightbox"
+  },
+  "keywords": [
+    "vue",
+    "vuejs",
+    "lightbox",
+    "gallery",
+    "image gallery",
+    "image lightbox",
+  ],
+  "bugs": {
+    "url": "https://github.com/pexea12/vue-image-lightbox",
+  },
+  "homepage": "https://github.com/pexea12/vue-image-lightbox",
   "dependencies": {
     "vue": "^2.1.0"
   },
