@@ -18,10 +18,10 @@
     "lightbox",
     "gallery",
     "image gallery",
-    "image lightbox",
+    "image lightbox"
   ],
   "bugs": {
-    "url": "https://github.com/pexea12/vue-image-lightbox",
+    "url": "https://github.com/pexea12/vue-image-lightbox"
   },
   "homepage": "https://github.com/pexea12/vue-image-lightbox",
   "dependencies": {
