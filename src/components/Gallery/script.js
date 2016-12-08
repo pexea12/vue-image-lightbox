@@ -34,6 +34,17 @@ export default {
     }
   },
 
+  mounted() {
+    let self = this
+    document.onkeydown = (event) => {
+      event = event || window.event
+
+      if (event.keyCode === 37) self.previousImage()
+      if (event.keyCode === 39) self.nextImage()
+      if (event.keyCode === 27) self.closeLightBox()
+    }
+  },
+
   methods: {
     showImage(index) {
       this.$set(this, 'lightBoxOn', true)
@@ -49,7 +60,8 @@ export default {
     },
 
     previousImage() {
-      this.$set(this, 'select', ((this.select - 1) + this.countImages) % this.countImages)
+      this.$set(this, 
+'select', ((this.select - 1) + this.countImages) % this.countImages)
     }
   }
 }

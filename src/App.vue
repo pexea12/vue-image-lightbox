@@ -1,7 +1,8 @@
 <template>
   <div id="app" style="background-color: yellow" class="row">
-    <h1>Testing</h1>
     <div class="col-lg-4 col-md-12 col-sm-12">
+      <h1>Testing</h1>  
+      
       <gallery :images="images"></gallery>
     </div>
   </div>
