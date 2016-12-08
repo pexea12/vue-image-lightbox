@@ -64,6 +64,7 @@
 .vue-lb-figure {
   margin: 0px;
   display: block;
+  position: relative;
 }
 
 img.vue-lb-modal-image {
@@ -81,10 +82,17 @@ img.vue-lb-modal-image {
 }
 
 .vue-lb-info {
+  visibility: initial;
   position: absolute;
-  color: red;
-  background-color: rgba(0, 0, 0, 0.9);
+  bottom: 25px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 40px;
+  width: 100%;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  text-align: center;
 }
+
 
 .vue-lb-footer {
   box-sizing: border-box;

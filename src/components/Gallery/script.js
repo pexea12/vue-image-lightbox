@@ -17,12 +17,22 @@ export default {
 
     nThumbs: {
       type: Number,
-      default: 6
+      default: 7,
     },
 
     showThumbs: {
       type: Boolean,
       default: true,
+    },
+
+    autoPlay: {
+      type: Boolean, 
+      default: false,
+    },
+
+    autoPlayTime: {
+      type: Number,
+      default: 3000,
     },
   },
 
@@ -32,6 +42,8 @@ export default {
       thumbSelect: this.startAt,
       lightBoxOn: this.showLightBox,
       countImages: this.images.length,
+
+      timer: null,
     }
   },
 
@@ -43,6 +55,12 @@ export default {
       if (event.keyCode === 37) self.previousImage()
       if (event.keyCode === 39) self.nextImage()
       if (event.keyCode === 27) self.closeLightBox()
+    }
+
+    if (this.autoPlay) {
+      setInterval(() => {
+        this.nextImage()
+      }, this.autoPlayTime)
     }
   },
 
