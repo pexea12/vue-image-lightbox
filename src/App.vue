@@ -1,11 +1,9 @@
 <template>
   <div id="app" style="background-color: yellow" class="row">
-    <div class="col-lg-4 col-md-12 col-sm-12">
-      <h1>Testing</h1>  
-
+    <div>
       <ul>
         <li v-for="(image, index) in images" style="display: inline-block">
-          <img :src="image.src" alt="" style="height: 100px" @click="openGallery">
+          <img :src="image.src" alt="" style="height: 100px" @click="openGallery(index)">
         </li>
       </ul>
       <gallery :images="images" :show-light-box="false"></gallery>
@@ -79,13 +77,13 @@ export default {
 
   data () {
     return {
-      images: images,
+      images,
     }
   },
 
   methods: {
-    openGallery() {
-      this.$children[0].showImage(4)
+    openGallery(index) {
+      this.$children[0].showImage(index)
     }
   }
 }
