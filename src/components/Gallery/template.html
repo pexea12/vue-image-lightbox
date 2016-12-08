@@ -41,7 +41,7 @@
          :key="image.src"
          :class="'vue-lb-modal-thumbnail' + (thumbSelect === index ? '-active' : '')" 
          :style="`background-image: url('${ image.thumb }')`"
-         @click="showImage(index)"
+         @click="showImage(index + beginThumbIndex)"
     >
     </div> <!-- .vue-lb-modal-thumbail -->
 

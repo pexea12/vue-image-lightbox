@@ -42,8 +42,10 @@ export default {
       thumbSelect: this.startAt,
       lightBoxOn: this.showLightBox,
       countImages: this.images.length,
-
+      displayThumbs: this.images.slice(0, this.nThumbs),
       timer: null,
+
+      beginThumbIndex: 0,
     }
   },
 
@@ -58,29 +60,34 @@ export default {
     }
 
     if (this.autoPlay) {
-      setInterval(() => {
+      this.timer = setInterval(() => {
         this.nextImage()
       }, this.autoPlayTime)
     }
   },
 
-  computed: {
-    displayThumbs() {
+  watch: {
+    select() {
       let halfDown = Math.floor(this.nThumbs / 2)
       let mod = 1 - (this.nThumbs % 2)
 
       if (this.select <= halfDown) {
-        this.thumbSelect = this.select
-        return this.images.slice(0, this.nThumbs)
+        this.$set(this, 'beginThumbIndex', 0)
+        this.$set(this, 'thumbSelect', this.select)
+        this.$set(this, 'displayThumbs', this.images.slice(0, this.nThumbs))
+        return
       }
 
       if (this.select >= this.countImages - halfDown) {
-        this.thumbSelect = this.nThumbs - (this.countImages - this.select)
-        return this.images.slice(-this.nThumbs)
+        this.$set(this, 'beginThumbIndex', this.countImages - this.nThumbs)
+        this.$set(this, 'thumbSelect', this.nThumbs - (this.countImages - this.select))
+        this.$set(this, 'displayThumbs', this.images.slice(-this.nThumbs))
+        return
       }
 
-      this.thumbSelect = halfDown - mod
-      return this.images.slice(this.select - halfDown + mod, this.select + halfDown + 1)
+      this.$set(this, 'beginThumbIndex', this.select - halfDown + mod)
+      this.$set(this, 'thumbSelect', halfDown - mod)
+      this.$set(this, 'displayThumbs', this.images.slice(this.select - halfDown + mod, this.select + halfDown + 1))
     }
   },
 
