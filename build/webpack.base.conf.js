@@ -6,13 +6,14 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, '../dist/static'),
-    publicPath: 'static/',
-    filename: '[name].js'
+    publicPath: '/',
+    filename: 'build.js'
   },
   resolve: {
     extensions: ['', '.js', '.vue'],
     alias: {
-      'src': path.resolve(__dirname, '../src')
+      vue$: 'vue/dist/vue.common.js',
+      components: path.resolve(__dirname, '../src/components')
     }
   },
   resolveLoader: {

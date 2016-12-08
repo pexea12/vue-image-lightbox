@@ -7,6 +7,9 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 // dist/index.html will be auto-generated with correct URLs.
 config.output.filename = '[name].[chunkhash].js'
 config.output.chunkFilename = '[id].[chunkhash].js'
+config.output.libraryTarget = 'commonjs2'
+
+config.entry = './src/components/Gallery/index.js'
 
 // whether to generate source map for production files.
 // disabling this can speed up the build.
