@@ -3,7 +3,12 @@
     <div class="col-lg-4 col-md-12 col-sm-12">
       <h1>Testing</h1>  
 
-      <gallery :images="images"></gallery>
+      <ul>
+        <li v-for="(image, index) in images" style="display: inline-block">
+          <img :src="image.src" alt="" style="height: 100px" @click="openGallery">
+        </li>
+      </ul>
+      <gallery :images="images" :show-light-box="false"></gallery>
     </div>
   </div>
 </template>
@@ -75,6 +80,12 @@ export default {
   data () {
     return {
       images: images,
+    }
+  },
+
+  methods: {
+    openGallery() {
+      this.$children[0].showImage(4)
     }
   }
 }
