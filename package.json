@@ -4,6 +4,11 @@
   "version": "1.0.0",
   "author": "Nguyen Thien Dzung <dzungnguyenvn@outlook.com>",
   "license": "MIT",
+  "main": "dist/vue-image-lightbox.min.js",
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
     "dev": "webpack-dev-server --inline --hot --config build/webpack.dev.conf.js",
     "build": "rimraf dist && webpack --progress --hide-modules --config build/webpack.prod.conf.js"
