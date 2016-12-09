@@ -6,7 +6,7 @@
           <img :src="image.src" alt="" style="height: 100px" @click="openGallery(index)">
         </li>
       </ul>
-      <gallery :images="images" :show-light-box="false" ref="gallery"></gallery>
+      <lightbox :images="images" :show-light-box="false" ref="lightbox"></lightbox>
     </div>
   </div>
 </template>
@@ -66,13 +66,13 @@ let images = [
   },
 ]
 
-import Gallery from 'components/Gallery'
+import Lightbox from 'components/Lightbox'
 
 export default {
   name: 'app',
 
   components: {
-    Gallery,
+    Lightbox,
   },
 
   data () {

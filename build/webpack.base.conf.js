@@ -2,7 +2,7 @@ var path = require('path')
 
 module.exports = {
   entry: {
-    app: './src/components/Gallery/index.js'
+    app: './src/components/Lightbox/index.js'
   },
   output: {
     path: path.resolve(__dirname, '../dist'),

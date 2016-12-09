@@ -6,7 +6,7 @@ var config = require('./webpack.base.conf')
 config.output.filename = 'vue-image-lightbox.min.js'
 config.output.libraryTarget = 'commonjs2'
 
-config.entry = './src/components/Gallery/index.js'
+config.entry = './src/components/Lightbox/index.js'
 
 // whether to generate source map for production files.
 // disabling this can speed up the build.
