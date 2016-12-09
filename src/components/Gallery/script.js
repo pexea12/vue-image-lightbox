@@ -50,13 +50,12 @@ export default {
   },
 
   mounted() {
-    let self = this
     document.onkeydown = (event) => {
       event = event || window.event
  
-      if (event.keyCode === 37) self.previousImage()
-      if (event.keyCode === 39) self.nextImage()
-      if (event.keyCode === 27) self.closeLightBox()
+      if (event.keyCode === 37) this.previousImage()
+      if (event.keyCode === 39) this.nextImage()
+      if (event.keyCode === 27) this.closeLightBox()
     }
 
     if (this.autoPlay) {
