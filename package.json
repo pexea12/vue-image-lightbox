@@ -1,5 +1,5 @@
 {
-  "name": "vue-image-gallery",
+  "name": "vue-image-lightbox",
   "description": "A Vue.js package to display an image gallery lightbox",
   "version": "1.0.0",
   "author": "Nguyen Thien Dzung <dzungnguyenvn@outlook.com>",
