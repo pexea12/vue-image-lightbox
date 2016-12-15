@@ -50,7 +50,7 @@ export default {
   },
 
   mounted() {
-    if (document !== 'undefined') {
+    if (document !== undefined) {
       document.onkeydown = (event) => {
         if (event.keyCode === 37) this.previousImage()
         if (event.keyCode === 39) this.nextImage()
