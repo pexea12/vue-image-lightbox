@@ -17,15 +17,10 @@ var SOURCE_MAP = true
 
 config.devtool = SOURCE_MAP ? 'source-map' : false
 
-config.vue.loaders = {
-  js: 'babel!eslint',
-}
-
 config.plugins = (config.plugins || []).concat([
-  // http://vuejs.github.io/vue-loader/workflow/production.html
   new webpack.DefinePlugin({
     'process.env': {
-      NODE_ENV: '"production"'
+      NODE_ENV: 'production'
     }
   }),
 

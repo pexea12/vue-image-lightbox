@@ -1,4 +1,5 @@
 var path = require('path')
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -30,23 +31,11 @@ module.exports = {
         loader: 'babel!eslint',
         exclude: /node_modules/
       },
-      {
-        test: /\.json$/,
-        loader: 'json'
-      },
-      {
-        test: /\.(png|jpg|gif|svg)$/,
-        loader: 'url',
-        query: {
-          limit: 10000,
-          name: '[name].[ext]?[hash]'
-        }
-      }
     ]
   },
   vue: {
     loaders: {
-      js: 'babel!eslint'
+      css: ExtractTextPlugin.extract('css'),
     }
   },
   eslint: {
