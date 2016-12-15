@@ -51,8 +51,6 @@ export default {
 
   mounted() {
     document.onkeydown = (event) => {
-      event = event || window.event
- 
       if (event.keyCode === 37) this.previousImage()
       if (event.keyCode === 39) this.nextImage()
       if (event.keyCode === 27) this.closeLightBox()
