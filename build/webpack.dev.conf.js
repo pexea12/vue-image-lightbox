@@ -1,5 +1,6 @@
 var config = require('./webpack.base.conf')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 // eval-source-map is faster for development
 config.devtool = 'eval-source-map'
@@ -18,6 +19,9 @@ config.devServer = {
 config.output.publicPath = '/'
 
 config.plugins = (config.plugins || []).concat([
+
+  new ExtractTextPlugin("vue-image-lightbox.min.css"),
+
   // generate HTML on the fly
   new HtmlWebpackPlugin({
     filename: 'index.html',

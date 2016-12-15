@@ -50,13 +50,13 @@ export default {
   },
 
   mounted() {
-    if (document !== undefined) {
-      document.onkeydown = (event) => {
-        if (event.keyCode === 37) this.previousImage()
-        if (event.keyCode === 39) this.nextImage()
-        if (event.keyCode === 27) this.closeLightBox()
-      }
-    }
+    // if (document !== undefined) {
+    //   document.onkeydown = (event) => {
+    //     if (event.keyCode === 37) this.previousImage()
+    //     if (event.keyCode === 39) this.nextImage()
+    //     if (event.keyCode === 27) this.closeLightBox()
+    //   }
+    // }
 
     if (this.autoPlay) {
       this.timer = setInterval(() => {
@@ -64,6 +64,7 @@ export default {
       }, this.autoPlayTime)
     }
   },
+
 
   watch: {
     select() {

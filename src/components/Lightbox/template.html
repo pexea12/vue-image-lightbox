@@ -1,4 +1,8 @@
-<div class="vue-lb-container" v-if="lightBoxOn">
+<div class="vue-lb-container" v-show="lightBoxOn"
+  @keydown.37.stop.prevent="previousImage"
+  @keydown.39.stop.prevent="nextImage"
+  @keydown.27.stop.prevent="closeLightbox"
+>
   <div class="vue-lb-content">
     <div class="vue-lb-header">
       <span></span>
