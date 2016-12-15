@@ -1,8 +1,11 @@
 var webpack = require('webpack')
 var config = require('./webpack.base.conf')
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 
 // naming output files with hashes for better caching.
 // dist/index.html will be auto-generated with correct URLs.
+config.target = 'node'
 config.output.filename = 'vue-image-lightbox.min.js'
 config.output.libraryTarget = 'commonjs2'
 
@@ -25,11 +28,15 @@ config.plugins = (config.plugins || []).concat([
       NODE_ENV: '"production"'
     }
   }),
+
+  new ExtractTextPlugin("vue-image-lightbox.min.css"),
+
   new webpack.optimize.UglifyJsPlugin({
     compress: {
       warnings: false
     }
   }),
+
   new webpack.optimize.OccurenceOrderPlugin()
 ])
 
