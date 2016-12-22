@@ -31,6 +31,14 @@ module.exports = {
         loader: 'babel!eslint',
         exclude: /node_modules/
       },
+      {
+        test: /\.(png|jpg|gif|svg)$/,
+        loader: 'url',
+        query: {
+          limit: 10000,
+          name: '[name].[ext]?[hash]'
+        }
+      }
     ]
   },
   vue: {
