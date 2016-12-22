@@ -35,7 +35,7 @@ module.exports = {
   },
   vue: {
     loaders: {
-      css: ExtractTextPlugin.extract('css'),
+      // css: ExtractTextPlugin.extract('css'),
     }
   },
   eslint: {
