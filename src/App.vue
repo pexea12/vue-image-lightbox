@@ -6,7 +6,7 @@
           <img :src="image.src" alt="" style="height: 100px" @click="openGallery(index)">
         </li>
       </ul>
-      <lightbox :images="images" :show-light-box="false" ref="lightbox"></lightbox>
+      <lightbox :images="images" ref="lightbox"></lightbox>
     </div>
   </div>
 </template>
@@ -83,7 +83,7 @@ export default {
 
   methods: {
     openGallery(index) {
-      this.$refs.gallery.showImage(index)
+      this.$refs.lightbox.showImage(index)
     }
   }
 }

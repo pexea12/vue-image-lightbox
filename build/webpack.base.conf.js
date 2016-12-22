@@ -3,7 +3,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: {
-    app: './src/components/Lightbox/index.js'
+    app: './src/main.js'
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
