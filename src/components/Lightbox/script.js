@@ -25,6 +25,7 @@ export default {
       default: true,
     },
 
+    // Mode
     autoPlay: {
       type: Boolean, 
       default: false,
@@ -34,6 +35,11 @@ export default {
       type: Number,
       default: 3000,
     },
+
+    fullScreen: {
+      type: Boolean,
+      default: true,
+    }
   },
 
   data() {

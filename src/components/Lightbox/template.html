@@ -14,7 +14,8 @@
       </button> <!-- .vue-lb-button-close -->
       <button type="button" 
               title="Fullscreen" 
-              class="vue-lb-button-close vue-lb-button-fullscreen" 
+              class="vue-lb-button-close vue-lb-button-fullscreen"
+              v-if="fullScreen"
               @click="closeLightBox"
       >
         <span>
