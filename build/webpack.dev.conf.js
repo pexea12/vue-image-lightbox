@@ -7,7 +7,8 @@ config.devtool = 'eval-source-map'
 
 config.devServer = {
   // allow access over local network
-  host: '0.0.0.0',
+  host: 'localhost',
+  port: 1805,
   // enable HTML5 history routing
   historyApiFallback: true,
   // suppress useless text
@@ -19,9 +20,6 @@ config.devServer = {
 config.output.publicPath = '/'
 
 config.plugins = (config.plugins || []).concat([
-
-  new ExtractTextPlugin("vue-image-lightbox.min.css"),
-
   // generate HTML on the fly
   new HtmlWebpackPlugin({
     filename: 'index.html',
@@ -30,3 +28,7 @@ config.plugins = (config.plugins || []).concat([
 ])
 
 module.exports = config
+
+
+
+  // new ExtractTextPlugin("vue-image-lightbox.min.css"),
