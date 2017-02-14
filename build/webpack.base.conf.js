@@ -32,7 +32,6 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-<<<<<<< HEAD
         test: /\.json$/,
         loader: 'json',
       },
