@@ -5,7 +5,6 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 // naming output files with hashes for better caching.
 // dist/index.html will be auto-generated with correct URLs.
-config.target = 'node'
 config.output.filename = 'vue-image-lightbox.min.js'
 config.output.libraryTarget = 'commonjs2'
 
@@ -42,5 +41,4 @@ config.plugins = (config.plugins || []).concat([
   new webpack.optimize.OccurenceOrderPlugin()
 ])
 
-console.log(config)
 module.exports = config

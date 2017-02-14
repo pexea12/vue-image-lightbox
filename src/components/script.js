@@ -96,6 +96,18 @@ export default {
   },
 
   methods: {
+    createLazyImageSrc(imageSrc) {
+      if (this.siteLoading) {
+        return {
+          src: imageSrc,
+          loading: this.siteLoading,
+          error: this.siteLoading,
+        }
+      }
+
+      return imageSrc
+    },
+
     showImage(index) {
       this.$set(this, 'lightBoxOn', true)
       this.$set(this, 'select', index)
