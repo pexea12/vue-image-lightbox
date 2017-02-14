@@ -73,7 +73,7 @@ let images = [
   },
 ]
 
-import Lightbox from 'components/Lightbox/Lightbox'
+import Lightbox from 'components/Lightbox'
 
 export default {
   name: 'app',
