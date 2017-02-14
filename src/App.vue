@@ -13,7 +13,11 @@
           >
         </li>
       </ul>
-      <lightbox :images="images" ref="lightbox"></lightbox>
+      <lightbox 
+        :images="images" 
+        ref="lightbox"
+        :site-loading="siteLoading"
+      ></lightbox>
     </div>
   </div>
 </template>
@@ -75,6 +79,8 @@ let images = [
 
 import Lightbox from 'components/Lightbox'
 
+import siteLoading from './siteloading.gif'
+
 export default {
   name: 'app',
 
@@ -85,6 +91,7 @@ export default {
   data () {
     return {
       images,
+      siteLoading,
     }
   },
 

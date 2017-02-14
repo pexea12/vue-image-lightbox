@@ -1,5 +1,3 @@
-import siteLoading from '../siteloading.gif'
-
 export default {
   props: {
     images: {
@@ -36,12 +34,14 @@ export default {
       type: Number,
       default: 3000,
     },
+
+    siteLoading: {
+      default: null,
+    },
   },
 
   data() {
     return {
-      siteLoading,
-
       select: this.startAt,
       thumbSelect: this.startAt,
       lightBoxOn: this.showLightBox,

@@ -45,11 +45,7 @@ module.exports = {
       },
     ],
   },
-  // vue: {
-  //   loaders: {
-  //     css: ExtractTextPlugin.extract("css"),
-  //   }
-  // },
+
   eslint: {
     formatter: require('eslint-friendly-formatter')
   },
