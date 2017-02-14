@@ -56,7 +56,7 @@
 
     <div 
       v-for="(image, index) in displayThumbs" 
-      :key="`${ image.src }{ index }`"
+      :key="image.src + index"
       :class="'vue-lb-modal-thumbnail' + (thumbSelect === index ? '-active' : '')" 
       v-lazy:background-image="createLazyImageSrc(image.thumb)"
       @click="showImage(index + beginThumbIndex)"
