@@ -24,7 +24,7 @@ module.exports = {
     loaders: [
       {
         test: /\.vue$/,
-        loader: 'vue'
+        loader: 'vue',
       },
       {
         test: /\.js$/,
@@ -43,14 +43,14 @@ module.exports = {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
         loader: 'url',
       },
-    ]
+    ],
   },
   // vue: {
   //   loaders: {
-  //     css: ExtractTextPlugin.extract('css'),
+  //     css: ExtractTextPlugin.extract("css"),
   //   }
   // },
   eslint: {
     formatter: require('eslint-friendly-formatter')
-  }
+  },
 }

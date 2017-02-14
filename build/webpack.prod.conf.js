@@ -9,13 +9,26 @@ config.target = 'node'
 config.output.filename = 'vue-image-lightbox.min.js'
 config.output.libraryTarget = 'commonjs2'
 
-config.entry = './src/components/Lightbox/index.js'
+config.entry = './src/components/Lightbox.vue'
 
 // whether to generate source map for production files.
 // disabling this can speed up the build.
 var SOURCE_MAP = true
 
 config.devtool = SOURCE_MAP ? 'source-map' : false
+
+// config.module.loaders = config.module.loaders.concat([
+//   { 
+//     test: /\.css$/, 
+//     loader: ExtractTextPlugin.extract("style-loader", "css-loader") 
+//   }
+// ])
+
+config.vue = {
+  loaders: {
+    css: ExtractTextPlugin.extract("css"),
+  }
+},
 
 config.plugins = (config.plugins || []).concat([
   new webpack.DefinePlugin({
@@ -35,4 +48,5 @@ config.plugins = (config.plugins || []).concat([
   new webpack.optimize.OccurenceOrderPlugin()
 ])
 
+console.log(config)
 module.exports = config
