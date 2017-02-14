@@ -25,6 +25,7 @@ export default {
       default: true,
     },
 
+    // Mode
     autoPlay: {
       type: Boolean, 
       default: false,
