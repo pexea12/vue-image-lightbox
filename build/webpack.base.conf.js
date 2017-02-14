@@ -1,4 +1,4 @@
-
+var path = require('path')
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
@@ -8,14 +8,14 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, '../dist'),
     publicPath: '/',
-    filename: 'build.js'
+    filename: 'build.js',
   },
   resolve: {
     extensions: ['', '.js', '.vue'],
     alias: {
       vue$: 'vue/dist/vue.common.js',
-      components: path.resolve(__dirname, '../src/components')
-    }
+      components: path.resolve(__dirname, '../src/components'),
+    },
   },
   resolveLoader: {
     root: path.join(__dirname, 'node_modules'),
@@ -31,13 +31,25 @@ module.exports = {
         loader: 'babel!eslint',
         exclude: /node_modules/
       },
+      {
+        test: /\.json$/,
+        loader: 'json',
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        loader: 'url',
+      },
+      {
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        loader: 'url',
+      },
     ]
   },
-  vue: {
-    loaders: {
-      css: ExtractTextPlugin.extract('css'),
-    }
-  },
+  // vue: {
+  //   loaders: {
+  //     css: ExtractTextPlugin.extract('css'),
+  //   }
+  // },
   eslint: {
     formatter: require('eslint-friendly-formatter')
   }

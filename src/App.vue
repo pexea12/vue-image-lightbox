@@ -2,8 +2,15 @@
   <div id="app" style="background-color: yellow" class="row">
     <div>
       <ul>
-        <li v-for="(image, index) in images" style="display: inline-block">
-          <img :src="image.src" alt="" style="height: 100px" @click="openGallery(index)">
+        <li 
+          v-for="(image, index) in images" 
+          style="display: inline-block"
+        >
+          <img 
+            v-lazy="image.src" 
+            style="height: 100px" 
+            @click="openGallery(index)"
+          >
         </li>
       </ul>
       <lightbox :images="images" ref="lightbox"></lightbox>
@@ -66,7 +73,7 @@ let images = [
   },
 ]
 
-import Lightbox from 'components/Lightbox'
+import Lightbox from 'components/Lightbox/Lightbox'
 
 export default {
   name: 'app',
