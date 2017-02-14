@@ -48,13 +48,15 @@
     "json-loader": "^0.5.4",
     "rimraf": "^2.5.0",
     "url-loader": "^0.5.7",
-    "vue": "^2.1.0",
+    "vue": "2.1.6",
     "vue-hot-reload-api": "^1.2.0",
     "vue-html-loader": "^1.0.0",
     "vue-loader": "^9.0.0",
     "vue-style-loader": "^1.0.0",
     "webpack": "^1.12.2",
-    "webpack-dev-server": "^1.12.0",
-    "vue-style-loader": "^1.0.0"
+    "webpack-dev-server": "^1.12.0"
+  },
+  "dependencies": {
+    "vue-lazyload": "^1.0.0-rc9"
   }
 }
