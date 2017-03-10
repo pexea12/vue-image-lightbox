@@ -60,12 +60,10 @@ export default {
   },
 
   mounted() {
-    if (document !== undefined) {
-      document.onkeydown = (event) => {
-        if (event.keyCode === 37) this.previousImage()
-        if (event.keyCode === 39) this.nextImage()
-        if (event.keyCode === 27) this.closeLightBox()
-      }
+    document.onkeydown = (event) => {
+      if (event.keyCode === 37) this.previousImage()
+      if (event.keyCode === 39) this.nextImage()
+      if (event.keyCode === 27) this.closeLightBox()
     }
 
     if (this.autoPlay) {

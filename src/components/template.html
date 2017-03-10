@@ -3,14 +3,18 @@
   class="vue-lb-container" 
   v-show="lightBoxOn" 
   v-if="images && images.length > 0"
+  @click.self="closeLightBox"
 >
   <div class="vue-lb-content">
-    <div class="vue-lb-header">
+    <div 
+      class="vue-lb-header"
+      @click="closeLightBox"
+    >
       <span></span>
-      <button type="button" 
-              title="Close (Esc)" 
-              class="vue-lb-button-close" 
-              @click="closeLightBox"
+      <button 
+        type="button" 
+        title="Close (Esc)" 
+        class="vue-lb-button-close" 
       >
         <span>
           <svg fill="white" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;">

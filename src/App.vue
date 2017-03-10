@@ -26,53 +26,18 @@
 
 let images = [
   {
-    thumb: 'https://images.unsplash.com/photo-1454991727061-be514eae86f7?dpr=2&auto=format&w=1024',
-    src: 'https://images.unsplash.com/photo-1454991727061-be514eae86f7?dpr=2&auto=format&w=1024',
+    thumb: 'https://www.smashingmagazine.com/wp-content/uploads/2015/06/10-dithering-opt.jpg',
+    src: 'https://www.smashingmagazine.com/wp-content/uploads/2015/06/10-dithering-opt.jpg',
     caption: '<h4>Hello World</h4>',
   },
   {
-    thumb: 'https://images.unsplash.com/photo-1455717974081-0436a066bb96?dpr=2&auto=format&w=1024',
-    src: 'https://images.unsplash.com/photo-1455717974081-0436a066bb96?dpr=2&auto=format&w=1024',
+    thumb: 'https://s3-us-west-1.amazonaws.com/powr/defaults/image-slider2.jpg',
+    src: 'https://s3-us-west-1.amazonaws.com/powr/defaults/image-slider2.jpg',
     caption: '<h4>Hello World</h4>',
   },
   {
-    thumb: 'https://images.unsplash.com/photo-1460899960812-f6ee1ecaf117?dpr=2&auto=format&w=1024',
-    src: 'https://images.unsplash.com/photo-1460899960812-f6ee1ecaf117?dpr=2&auto=format&w=1024',
-    caption: '<h4>Hello World</h4>',
-  },
-  {
-    thumb: 'https://images.unsplash.com/photo-1456926631375-92c8ce872def?dpr=2&auto=format&w=1024',
-    src: 'https://images.unsplash.com/photo-1456926631375-92c8ce872def?dpr=2&auto=format&w=1024',
-    caption: '<h4>Hello World</h4>',
-  },
-  {
-    thumb: 'https://images.unsplash.com/photo-1452274381522-521513015433?dpr=2&auto=format&w=1024',
-    src: 'https://images.unsplash.com/photo-1452274381522-521513015433?dpr=2&auto=format&w=1024',
-    caption: '<h4>Hello World</h4>',
-  },
-  {
-    thumb: 'https://images.unsplash.com/photo-1471145653077-54c6f0aae511?dpr=2&auto=format&w=1024',
-    src: 'https://images.unsplash.com/photo-1471145653077-54c6f0aae511?dpr=2&auto=format&w=1024',
-    caption: '<h4>Hello World</h4>',
-  },
-  {
-    thumb: 'https://images.unsplash.com/photo-1471005197911-88e9d4a7834d?dpr=2&auto=format&w=1024',
-    src: 'https://images.unsplash.com/photo-1471005197911-88e9d4a7834d?dpr=2&auto=format&w=1024',
-    caption: '<h4>Hello World</h4>',
-  },
-  {
-    thumb: 'https://images.unsplash.com/photo-1470777639313-60af88918203?dpr=2&auto=format&w=1024',
-    src: 'https://images.unsplash.com/photo-1470777639313-60af88918203?dpr=2&auto=format&w=1024',
-    caption: '<h4>Hello World</h4>',
-  },
-  {
-    thumb: 'https://images.unsplash.com/photo-1471127432458-65206be149c9?dpr=2&auto=format&w=1024',
-    src: 'https://images.unsplash.com/photo-1471127432458-65206be149c9?dpr=2&auto=format&w=1024',
-    caption: '<h4>Hello World</h4>',
-  },
-  {
-    thumb: 'https://images.unsplash.com/photo-1471101173712-b9884175254e?dpr=2&auto=format&w=1024',
-    src: 'https://images.unsplash.com/photo-1471101173712-b9884175254e?dpr=2&auto=format&w=1024',
+    thumb: 'http://hdwallpaperbackgrounds.net/wp-content/uploads/2017/03/image-3.jpg',
+    src: 'http://hdwallpaperbackgrounds.net/wp-content/uploads/2017/03/image-3.jpg',
     caption: '<h4>Hello World</h4>',
   },
 ]
