@@ -29,15 +29,17 @@
       <div 
         class="vue-lb-info" 
         v-html="images[select].caption"
+        v-show="showCaption"
       ></div>
 
       <div class="vue-lb-footer">
         <div class="vue-lb-footer-info"></div>
         <div class="vue-lb-footer-count">
           {{ select + 1 }}/{{ countImages }}
-        </div> <!-- .vue-lb-footer-count -->
-      </div> <!-- .vue-lb-footer -->
-    </div> <!-- .vue-lb-modal-figure -->
+        </div> 
+      </div> 
+
+    </div> 
   </div> <!-- .vue-lb-content -->
 
   <div v-if="showThumbs" class="vue-lb-thumbnail">

@@ -39,6 +39,11 @@ export default {
     siteLoading: {
       default: null,
     },
+
+    showCaption: {
+      type: Boolean,
+      default: false,
+    }
   },
 
   data() {
