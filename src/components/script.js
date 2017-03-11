@@ -60,11 +60,6 @@ export default {
   },
 
   mounted() {
-    document.onkeydown = (event) => {
-      if (event.keyCode === 37) this.previousImage()
-      if (event.keyCode === 39) this.nextImage()
-      if (event.keyCode === 27) this.closeLightBox()
-    }
 
     if (this.autoPlay) {
       this.timer = setInterval(() => {
@@ -113,6 +108,12 @@ export default {
     },
 
     showImage(index) {
+      document.onkeydown = (event) => {
+        if (event.keyCode === 37) this.previousImage()
+        if (event.keyCode === 39) this.nextImage()
+        if (event.keyCode === 27) this.closeLightBox()
+      }
+    
       this.$set(this, 'lightBoxOn', true)
       this.$set(this, 'select', index)
     },
