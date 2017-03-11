@@ -94,6 +94,10 @@ export default {
     }
   },
 
+  destroy() {
+    document.removeEventLister('keydown', this.addKeyEvent)
+  },
+
   methods: {
     createLazyImageSrc(imageSrc) {
       if (this.siteLoading) {
@@ -108,14 +112,16 @@ export default {
     },
 
     showImage(index) {
-      document.onkeydown = (event) => {
-        if (event.keyCode === 37) this.previousImage()
-        if (event.keyCode === 39) this.nextImage()
-        if (event.keyCode === 27) this.closeLightBox()
-      }
+      document.addEventListener('keydown', this.addKeyEvent)
     
       this.$set(this, 'lightBoxOn', true)
       this.$set(this, 'select', index)
+    },
+
+    addKeyEvent(event) {
+      if (event.keyCode === 37) this.previousImage()
+      if (event.keyCode === 39) this.nextImage()
+      if (event.keyCode === 27) this.closeLightBox()
     },
 
     closeLightBox() {
