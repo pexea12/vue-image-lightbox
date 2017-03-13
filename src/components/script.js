@@ -95,7 +95,7 @@ export default {
   },
 
   destroy() {
-    document.removeEventLister('keydown', this.addKeyEvent)
+    document.removeEventListener('keydown', this.addKeyEvent)
   },
 
   methods: {
@@ -126,6 +126,8 @@ export default {
 
     closeLightBox() {
       this.$set(this, 'lightBoxOn', false)
+
+      document.removeEventListener('keydown', this.addKeyEvent)
     },
 
     nextImage() {
