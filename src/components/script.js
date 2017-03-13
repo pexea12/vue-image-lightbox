@@ -94,10 +94,6 @@ export default {
     }
   },
 
-  destroy() {
-    document.removeEventListener('keydown', this.addKeyEvent)
-  },
-
   methods: {
     createLazyImageSrc(imageSrc) {
       if (this.siteLoading) {
@@ -137,5 +133,14 @@ export default {
     previousImage() {
       this.$set(this, 'select', ((this.select - 1) + this.countImages) % this.countImages)
     }
-  }
+  },
+
+
+  beforeDestroy() {
+    document.removeEventListener('keydown', this.addKeyEvent)
+
+    if (this.autoPlay) {
+      clearInterval(this.timer)
+    }
+  },
 }
