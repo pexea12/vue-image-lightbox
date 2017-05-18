@@ -59,6 +59,32 @@ export default {
     }
   },
 
+  computed: {
+    imagesSrc() {
+      if (this.siteLoading) {
+        return this.images.map(({ src }) => ({
+          src,
+          loading: this.siteLoading,
+          error: this.siteLoading,
+        }))
+      }
+
+      return this.images.map(({ src }) => src)
+    },
+
+    imagesThumb() {
+      if (this.siteLoading) {
+        return this.displayThumbs.map(({ thumb }) => ({
+          src: thumb,
+          loading: this.siteLoading,
+          error: this.siteLoading,
+        }))
+      }
+
+      return this.displayThumbs.map(({ thumb }) => thumb)
+    },
+  },
+
   mounted() {
 
     if (this.autoPlay) {
@@ -95,18 +121,6 @@ export default {
   },
 
   methods: {
-    createLazyImageSrc(imageSrc) {
-      if (this.siteLoading) {
-        return {
-          src: imageSrc,
-          loading: this.siteLoading,
-          error: this.siteLoading,
-        }
-      }
-
-      return imageSrc
-    },
-
     showImage(index) {
       document.addEventListener('keydown', this.addKeyEvent)
     
