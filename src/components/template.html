@@ -27,7 +27,7 @@
     </div> <!-- .vue-lb-header -->
     <div class="vue-lb-figure">
       <img 
-        v-lazy="createLazyImageSrc(images[select].src)"
+        v-lazy="imagesSrc[select]"
         class="vue-lb-modal-image"
       >
 
@@ -62,10 +62,10 @@
     </button>
 
     <div 
-      v-for="(image, index) in displayThumbs" 
+      v-for="(image, index) in imagesThumb" 
       :key="image.src + index"
       :class="'vue-lb-modal-thumbnail' + (thumbSelect === index ? '-active' : '')" 
-      v-lazy:background-image="createLazyImageSrc(image.thumb)"
+      v-lazy:background-image="image"
       @click="showImage(index + beginThumbIndex)"
     >
     </div>
