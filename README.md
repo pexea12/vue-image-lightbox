@@ -1,5 +1,6 @@
 # vue-image-lightbox
-A simple image lightbox component for Vuejs  [NPM Package](https://www.npmjs.com/package/vue-image-lightbox)  
+A simple image lightbox component for Vuejs  
+[NPM Package](https://www.npmjs.com/package/vue-image-lightbox)  
 
 I use CSS style from [react-images](https://github.com/jossmac/react-images)
 
@@ -37,7 +38,7 @@ export default {
 #### Browser global
 
 ```html
-<script scr="path/to/vue.js"></script>
+<script src="path/to/vue.js"></script>
 <script src="path/to/dist/vue-image-lightbox.js"></script>
 ```
 
@@ -150,17 +151,17 @@ How to use:
     <tr>
       <td>previousImage</td>
       <td>()</td>
-      <th>Move to previous image</th>
+      <td>Move to previous image</td>
     </tr>
     <tr>
       <td>closeLightBox</td>
       <td>()</td>
-      <th>Close lightbox</th>
+      <td>Close lightbox</td>
     </tr>
     <tr>
       <td>showImage</td>
       <td>(index)</td>
-      <th>Show the image at index</th>
+      <td>Show the image at index</td>
     </tr>
   </tbody>
 </table>
