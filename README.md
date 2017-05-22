@@ -49,6 +49,7 @@ You can simply view [App.vue](https://github.com/pexea12/vue-image-lightbox/blob
 Import CSS style
 ```javascript
 require('vue-image-lightbox/dist/vue-image-lightbox.min.css')
+// Use only when you are using Webpack
 ```
 How to use:
 ```html
