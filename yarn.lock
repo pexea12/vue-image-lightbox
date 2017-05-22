@@ -4167,9 +4167,9 @@ vue-html-loader@^1.0.0:
     loader-utils "^0.2.15"
     object-assign "^4.1.0"
 
-vue-lazyload@^1.0.0-rc10:
-  version "1.0.0-rc9"
-  resolved "https://registry.yarnpkg.com/vue-lazyload/-/vue-lazyload-1.0.0-rc9.tgz#c3ab2ba6759307f550b5130ee3258ed6957b8824"
+vue-lazyload@>1.0.0-rc10:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/vue-lazyload/-/vue-lazyload-1.0.3.tgz#6bd881a5bf3c681e74e86190094cad104bc403fa"
 
 vue-loader@^11.0.0:
   version "11.0.0"

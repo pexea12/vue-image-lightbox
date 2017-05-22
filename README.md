@@ -46,8 +46,11 @@ export default {
 
 You can simply view [App.vue](https://github.com/pexea12/vue-image-lightbox/blob/master/src/App.vue) to see how to use **vue-image-lightbox**
 
+Import CSS style
+```javascript
+require('vue-image-lightbox/dist/vue-image-lightbox.min.css')
+```
 How to use:
-
 ```html
 <lightbox :images="images"></lightbox>
 ```
