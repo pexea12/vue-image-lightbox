@@ -1,3 +1,5 @@
+require('./style.css')
+
 export default {
   props: {
     images: {

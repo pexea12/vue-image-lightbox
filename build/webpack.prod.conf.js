@@ -1,44 +1,54 @@
-var webpack = require('webpack')
-var config = require('./webpack.base.conf')
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+const webpack = require('webpack')
+const config = require('./webpack.base.conf')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+const path = require('path')
 
-
-// naming output files with hashes for better caching.
-// dist/index.html will be auto-generated with correct URLs.
 config.output.filename = 'vue-image-lightbox.min.js'
-config.output.libraryTarget = 'commonjs2'
 
-// config.entry = './src/main.js'
-config.entry = './src/components/Lightbox.vue'
+config.entry = path.resolve(__dirname, '../src/components/Lightbox.vue')
 
-// whether to generate source map for production files.
-// disabling this can speed up the build.
-var SOURCE_MAP = true
+config.devtool = '#source-map'
 
-config.devtool = SOURCE_MAP ? 'source-map' : false
-
-config.vue = {
-  loaders: {
-    css: ExtractTextPlugin.extract("css"),
-  }
-},
+config.module.rules.push({
+  test: /\.css$/,
+  use: ExtractTextPlugin.extract({
+    fallback: "style-loader",
+    use: "css-loader",
+  }),
+})
 
 config.plugins = (config.plugins || []).concat([
   new webpack.DefinePlugin({
-    'process.env': {
-      NODE_ENV: '"production"'
-    }
+    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
   }),
 
-  new ExtractTextPlugin("vue-image-lightbox.min.css"),
+  new ExtractTextPlugin({
+    filename: 'vue-image-lightbox.min.css',
+  }),
 
-  new webpack.optimize.UglifyJsPlugin({
+  new UglifyJSPlugin({
     compress: {
-      warnings: false
+      warnings: false,
+      drop_debugger: true,
+      drop_console: true,
+      screw_ie8: true,
+      global_defs: {
+        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+      },
+    },
+
+    mangle: {
+      screw_ie8: true,
+    },
+
+    output: {
+      comments: false,
+      screw_ie8: true,
     }
   }),
 
-  new webpack.optimize.OccurenceOrderPlugin()
+  new webpack.optimize.OccurrenceOrderPlugin(),
 ])
 
 module.exports = config
