@@ -1,23 +1,20 @@
-var config = require('./webpack.base.conf')
-var HtmlWebpackPlugin = require('html-webpack-plugin')
+const config = require('./webpack.base.conf')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const webpack = require('webpack')
+const path = require('path')
 
-// eval-source-map is faster for development
-config.devtool = 'eval-source-map'
+config.devtool = '#eval-source-map'
 
 config.devServer = {
-  // allow access over local network
   host: 'localhost',
   port: 1805,
-  // enable HTML5 history routing
   historyApiFallback: true,
-  // suppress useless text
+  hotOnly: true,
+  overlay: true,
   noInfo: true,
 }
 
-// necessary for the html plugin to work properly
-// when serving the html from in-memory
-config.output.publicPath = '/'
-config.module.loaders = (config.module.loaders || []).concat([
+config.module.rules = (config.module.rules || []).concat([
   { 
     test: /\.css$/, 
     loader: "style!css" 
@@ -25,15 +22,18 @@ config.module.loaders = (config.module.loaders || []).concat([
 ])
 
 config.plugins = (config.plugins || []).concat([
-  // generate HTML on the fly
+  new webpack.DefinePlugin({
+    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+  }),
+
   new HtmlWebpackPlugin({
+    title: 'BookUp',
     filename: 'index.html',
-    template: 'src/index.html'
-  })
+    template: path.resolve(__dirname, '../src/index.html'),
+  }),
+
+  new webpack.optimize.OccurrenceOrderPlugin(),
+  new webpack.NoEmitOnErrorsPlugin(),
 ])
 
 module.exports = config
-
-
-
-  // new ExtractTextPlugin("vue-image-lightbox.min.css"),

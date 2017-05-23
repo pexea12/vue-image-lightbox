@@ -1,9 +1,8 @@
-var path = require('path')
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+const path = require('path')
 
 module.exports = {
   entry: {
-    app: './src/main.js'
+    main: path.resolve(__dirname, '../src/main.js'),
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
@@ -11,42 +10,44 @@ module.exports = {
     filename: 'build.js',
   },
   resolve: {
-    extensions: ['', '.js', '.vue'],
+    extensions: ['.json', '.js', '.vue'],
     alias: {
-      vue$: 'vue/dist/vue.common.js',
       components: path.resolve(__dirname, '../src/components'),
     },
   },
-  resolveLoader: {
-    root: path.join(__dirname, 'node_modules'),
-  },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.vue$/,
-        loader: 'vue',
+        use: 'vue-loader',
       },
       {
         test: /\.js$/,
-        loader: 'babel!eslint',
+        use: 'babel-loader',
         exclude: /node_modules/
       },
       {
-        test: /\.json$/,
-        loader: 'json',
-      },
-      {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: 'url',
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 10000,
+            name: 'images/[name].[hash:7].[ext]',
+          },
+        },
       },
+
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        loader: 'url',
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 10000,
+            name: 'fonts/[name].[hash:7].[ext]',
+          },
+        },
       },
-    ],
-  },
 
-  eslint: {
-    formatter: require('eslint-friendly-formatter')
+    ],
   },
 }
