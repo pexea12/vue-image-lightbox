@@ -28,6 +28,8 @@ config.plugins = (config.plugins || []).concat([
   }),
 
   new UglifyJSPlugin({
+    sourceMap: true,
+    
     compress: {
       warnings: false,
       drop_debugger: true,
