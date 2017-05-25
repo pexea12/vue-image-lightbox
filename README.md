@@ -19,13 +19,21 @@ yarn dev
 Install the package:
 
 ```
-npm install vue-image-lightbox  
-yarn add vue-image-lightbox
+npm install vue-image-lightbox vue-lazyload
+yarn add vue-image-lightbox vue-lazyload
 ```
 
 Then import it in your project
+At your entry point (`main.js` normally)
+```javascript
+import Vue from 'vue'
+import VueLazyload from 'vue-lazyload'
+...
+Vue.use(VueLazyLoad)
+```
 
-```js
+and use the lightbox:
+```javascript
 import Lightbox from 'vue-image-lightbox'
 
 export default {
