@@ -58,6 +58,8 @@ export default {
       timer: null,
 
       beginThumbIndex: 0,
+
+      docStyleOverflow: document && document.getElementsByTagName('body')[0].style.overflow,
     }
   },
 
@@ -119,7 +121,17 @@ export default {
       this.$set(this, 'beginThumbIndex', this.select - halfDown + mod)
       this.$set(this, 'thumbSelect', halfDown - mod)
       this.$set(this, 'displayThumbs', this.images.slice(this.select - halfDown + mod, this.select + halfDown + 1))
-    }
+    },
+
+    lightBoxOn(value) {
+      if (document != null) {
+        if (value) {
+          document.getElementsByTagName('body')[0].style.overflow = 'hidden'
+        } else {
+          document.getElementsByTagName('body')[0].style.overflow = this.docStyleOverflow
+        }
+      } 
+    },
   },
 
   methods: {
