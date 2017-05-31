@@ -58,8 +58,6 @@ export default {
       timer: null,
 
       beginThumbIndex: 0,
-
-      docStyleOverflow: document && document.getElementsByTagName('body')[0].style.overflow,
     }
   },
 
@@ -126,9 +124,9 @@ export default {
     lightBoxOn(value) {
       if (document != null) {
         if (value) {
-          document.getElementsByTagName('body')[0].style.overflow = 'hidden'
+          document.getElementsByTagName('body')[0].classList.add('vue-lb-open')
         } else {
-          document.getElementsByTagName('body')[0].style.overflow = this.docStyleOverflow
+          document.getElementsByTagName('body')[0].classList.remove('vue-lb-open')
         }
       } 
     },
