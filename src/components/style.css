@@ -220,6 +220,10 @@ img.vue-lb-modal-image {
   right: 10px;
 }
 
+.vue-lb-open {
+  overflow: hidden;
+}
+
 @media (min-width: 500px) {
   .vue-lb-thumbnail-arrow {
     width: 40px;
@@ -232,7 +236,11 @@ img.vue-lb-modal-image {
   }
 }
 
-.vue-lb-open {
-  overflow: hidden;
+.fade-enter-active, 
+.fade-leave-active {
+  transition: opacity .3s ease;
 }
 
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}

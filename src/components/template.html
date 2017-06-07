@@ -25,10 +25,13 @@
 
     </div> <!-- .vue-lb-header -->
     <div class="vue-lb-figure">
-      <img 
-        v-lazy="imagesSrc[select]"
-        class="vue-lb-modal-image"
-      >
+       <transition mode="out-in" name="fade">
+           <img 
+             :key="imagesSrc[select].src"
+             :src="imagesSrc[select].src"
+             class="vue-lb-modal-image"
+           >
+       </transition>
 
       <div 
         class="vue-lb-info" 
@@ -62,7 +65,7 @@
 
     <div 
       v-for="(image, index) in imagesThumb" 
-      :key="image.src + index"
+      :key="index"
       :class="'vue-lb-modal-thumbnail' + (thumbSelect === index ? '-active' : '')" 
       v-lazy:background-image="image"
       @click="showImage(index + beginThumbIndex)"
@@ -108,5 +111,4 @@
       </svg>
     </span>
   </button>
-</div> <!-- .vue-lb-container -->
-    
+</div> <!-- .vue-lb-container -->    
