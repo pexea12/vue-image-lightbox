@@ -119,7 +119,17 @@ export default {
       this.$set(this, 'beginThumbIndex', this.select - halfDown + mod)
       this.$set(this, 'thumbSelect', halfDown - mod)
       this.$set(this, 'displayThumbs', this.images.slice(this.select - halfDown + mod, this.select + halfDown + 1))
-    }
+    },
+
+    lightBoxOn(value) {
+      if (document != null) {
+        if (value) {
+          document.getElementsByTagName('body')[0].classList.add('vue-lb-open')
+        } else {
+          document.getElementsByTagName('body')[0].classList.remove('vue-lb-open')
+        }
+      } 
+    },
   },
 
   methods: {
