@@ -184,4 +184,4 @@ Most of the CSS belongs to [react-images](https://github.com/jossmac/react-image
 
 ### Contributors:
 - [@imcvampire](https://github.com/imcvampire)
-- {@krystalcampioni](https://github.com/krystalcampioni) 
+- [@krystalcampioni](https://github.com/krystalcampioni) 
