@@ -54,6 +54,7 @@
     "webpack-dev-server": "^2.4.5"
   },
   "dependencies": {
-    "vue-lazyload": "^1.0.3"
+    "vue-lazyload": "^1.0.3",
+    "vue-touch": "next"
   }
 }
