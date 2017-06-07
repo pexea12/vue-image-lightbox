@@ -232,3 +232,7 @@ img.vue-lb-modal-image {
   }
 }
 
+.vue-lb-open {
+  overflow: hidden;
+}
+
