@@ -69,6 +69,7 @@
       :class="'vue-lb-modal-thumbnail' + (thumbSelect === index ? '-active' : '')" 
       v-lazy:background-image="image"
       @click="showImage(index + beginThumbIndex)"
+      v-once
     >
     </div>
 
