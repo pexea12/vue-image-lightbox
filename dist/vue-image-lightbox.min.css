@@ -232,5 +232,9 @@ img.vue-lb-modal-image {
   }
 }
 
+.vue-lb-open {
+  overflow: hidden;
+}
+
 
 /*# sourceMappingURL=vue-image-lightbox.min.css.map*/
