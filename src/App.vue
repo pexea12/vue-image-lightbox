@@ -92,7 +92,7 @@ let images = [
   },
 ]
 
-import Lightbox from 'components/Lightbox'
+import Lightbox from '../dist/vue-image-lightbox.min.js'
 
 import siteLoading from './siteloading.gif'
 
