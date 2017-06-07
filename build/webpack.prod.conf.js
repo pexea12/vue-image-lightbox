@@ -5,6 +5,8 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const path = require('path')
 
 config.output.filename = 'vue-image-lightbox.min.js'
+config.output.libraryTarget = 'umd'
+config.output.library = 'Lightbox'
 
 config.entry = path.resolve(__dirname, '../src/components/Lightbox.vue')
 

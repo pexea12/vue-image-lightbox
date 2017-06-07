@@ -92,13 +92,11 @@ let images = [
   },
 ]
 
-import Lightbox from '../dist/vue-image-lightbox.min.js'
+import Lightbox from 'components/Lightbox'
 
 import siteLoading from './siteloading.gif'
 
 export default {
-  name: 'app',
-
   components: {
     Lightbox,
   },
