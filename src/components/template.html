@@ -1,9 +1,10 @@
-<div 
-  class="vue-lb-container" 
-  v-show="lightBoxOn" 
+<v-touch
+  class="vue-lb-container"
+  v-show="lightBoxOn"
   v-if="images && images.length > 0"
   @click.self="closeLightBox"
->
+  @swiperight="previousImage"
+  @swipeleft="nextImage">
   <div class="vue-lb-content">
     <div 
       class="vue-lb-header"
@@ -111,4 +112,4 @@
       </svg>
     </span>
   </button>
-</div> <!-- .vue-lb-container -->    
+</v-touch> <!-- .vue-lb-container -->    
