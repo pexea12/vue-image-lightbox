@@ -26,10 +26,13 @@
 
     </div> <!-- .vue-lb-header -->
     <div class="vue-lb-figure">
-      <img 
-        v-lazy="imagesSrc[select]"
-        class="vue-lb-modal-image"
-      >
+       <transition mode="out-in" name="fade">
+           <img 
+             :key="imagesSrc[select].src"
+             :src="imagesSrc[select].src"
+             class="vue-lb-modal-image"
+           >
+       </transition>
 
       <div 
         class="vue-lb-info" 
@@ -109,5 +112,4 @@
       </svg>
     </span>
   </button>
-</div> <!-- .vue-lb-container -->
-    
+</div> <!-- .vue-lb-container -->    
