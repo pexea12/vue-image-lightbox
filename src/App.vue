@@ -16,7 +16,7 @@
       <lightbox 
         :images="images" 
         ref="lightbox"
-        :site-loading="siteLoading"
+        :show-caption="true"
       ></lightbox>
     </div>
   </div>
@@ -28,32 +28,32 @@ let images = [
   {
     thumb: 'https://s3-us-west-1.amazonaws.com/powr/defaults/image-slider2.jpg',
     src: 'https://s3-us-west-1.amazonaws.com/powr/defaults/image-slider2.jpg',
-    caption: '<h4>Hello World</h4>',
+    caption: '<h4>Hello World 1</h4>',
   },
   {
     thumb: 'https://www.smashingmagazine.com/wp-content/uploads/2015/06/10-dithering-opt.jpg',
     src: 'https://www.smashingmagazine.com/wp-content/uploads/2015/06/10-dithering-opt.jpg',
-    caption: '<h4>Hello World</h4>',
+    caption: '<h4>Hello World 2</h4>',
   },
   {
     thumb: 'https://s3-us-west-1.amazonaws.com/powr/defaults/image-slider2.jpg',
     src: 'https://s3-us-west-1.amazonaws.com/powr/defaults/image-slider2.jpg',
-    caption: '<h4>Hello World</h4>',
+    caption: '<h4>Hello World 3</h4>',
   },
   {
     thumb: 'https://www.smashingmagazine.com/wp-content/uploads/2015/06/10-dithering-opt.jpg',
     src: 'https://www.smashingmagazine.com/wp-content/uploads/2015/06/10-dithering-opt.jpg',
-    caption: '<h4>Hello World</h4>',
+    caption: '<h4>Hello World 4</h4>',
   },
   {
     thumb: 'https://s3-us-west-1.amazonaws.com/powr/defaults/image-slider2.jpg',
     src: 'https://s3-us-west-1.amazonaws.com/powr/defaults/image-slider2.jpg',
-    caption: '<h4>Hello World</h4>',
+    caption: '<h4>Hello World 5</h4>',
   },
   {
     thumb: 'https://www.smashingmagazine.com/wp-content/uploads/2015/06/10-dithering-opt.jpg',
     src: 'https://www.smashingmagazine.com/wp-content/uploads/2015/06/10-dithering-opt.jpg',
-    caption: '<h4>Hello World</h4>',
+    caption: '<h4>Hello World 6</h4>',
   },
   {
     thumb: 'https://www.smashingmagazine.com/wp-content/uploads/2015/06/10-dithering-opt.jpg',

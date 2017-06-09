@@ -62,17 +62,17 @@ export default {
   },
 
   computed: {
-    imagesSrc() {
-      if (this.siteLoading) {
-        return this.images.map(({ src }) => ({
-          src,
-          loading: this.siteLoading,
-          error: this.siteLoading,
-        }))
-      }
+    // imagesSrc() {
+    //   if (this.siteLoading) {
+    //     return this.images.map(({ src }) => ({
+    //       src,
+    //       loading: this.siteLoading,
+    //       error: this.siteLoading,
+    //     }))
+    //   }
 
-      return this.images.map(({ src }) => src)
-    },
+    //   return this.images.map(({ src }) => src)
+    // },
 
     imagesThumb() {
       if (this.siteLoading) {
@@ -88,7 +88,6 @@ export default {
   },
 
   mounted() {
-
     if (this.autoPlay) {
       this.timer = setInterval(() => {
         this.nextImage()

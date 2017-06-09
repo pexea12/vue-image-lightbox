@@ -25,13 +25,16 @@
 
     </div> <!-- .vue-lb-header -->
     <div class="vue-lb-figure">
-       <transition mode="out-in" name="fade">
-           <img 
-             :key="imagesSrc[select].src"
-             :src="imagesSrc[select].src"
-             class="vue-lb-modal-image"
-           >
-       </transition>
+      <transition 
+        mode="out-in" 
+        name="fade"
+      >
+        <img 
+         :key="images[select].src"
+         :src="images[select].src"
+         class="vue-lb-modal-image"
+        >
+      </transition>
 
       <div 
         class="vue-lb-info" 
