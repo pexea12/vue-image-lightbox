@@ -20,7 +20,7 @@ Install the package:
 
 ```
 npm install vue-image-lightbox vue-lazyload
-yarn add vue-image-lightbox vue-lazyload
+yarn add vue-image-lightbox vue-lazyload vue-touch
 ```
 
 Then import it in your project
@@ -28,8 +28,10 @@ At your entry point (`main.js` normally)
 ```javascript
 import Vue from 'vue'
 import VueLazyload from 'vue-lazyload'
+import VueTouch from 'vue-touch'
 ...
 Vue.use(VueLazyLoad)
+Vue.use(VueTouch, { name: 'v-touch' })
 ```
 
 and use the lightbox:
