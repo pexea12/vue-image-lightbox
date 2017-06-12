@@ -19,7 +19,7 @@ yarn dev
 Install the package:
 
 ```
-npm install vue-image-lightbox vue-lazyload
+npm install vue-image-lightbox vue-lazyload vue-touch@next
 yarn add vue-image-lightbox vue-lazyload vue-touch@next
 ```
 
