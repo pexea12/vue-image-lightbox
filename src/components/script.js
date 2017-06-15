@@ -62,18 +62,6 @@ export default {
   },
 
   computed: {
-    // imagesSrc() {
-    //   if (this.siteLoading) {
-    //     return this.images.map(({ src }) => ({
-    //       src,
-    //       loading: this.siteLoading,
-    //       error: this.siteLoading,
-    //     }))
-    //   }
-
-    //   return this.images.map(({ src }) => src)
-    // },
-
     imagesThumb() {
       if (this.siteLoading) {
         return this.displayThumbs.map(({ thumb }) => ({
@@ -132,11 +120,13 @@ export default {
   },
 
   methods: {
-    showImage(index) {
+    showImage(index, $event) {
       document.addEventListener('keydown', this.addKeyEvent)
     
       this.$set(this, 'lightBoxOn', true)
       this.$set(this, 'select', index)
+
+      this.cancelBubble($event)
     },
 
     addKeyEvent(event) {
@@ -147,16 +137,21 @@ export default {
 
     closeLightBox() {
       this.$set(this, 'lightBoxOn', false)
-
       document.removeEventListener('keydown', this.addKeyEvent)
     },
 
-    nextImage() {
+    nextImage($event) {
       this.$set(this, 'select', (this.select + 1) % this.countImages)
+      this.cancelBubble($event)
     },
 
-    previousImage() {
+    previousImage($event) {
       this.$set(this, 'select', ((this.select - 1) + this.countImages) % this.countImages)
+      this.cancelBubble($event)
+    },
+
+    cancelBubble($event) {
+      if ($event) $event.cancelBubble = true
     }
   },
 
