@@ -120,13 +120,11 @@ export default {
   },
 
   methods: {
-    showImage(index, $event) {
+    showImage(index) {
       document.addEventListener('keydown', this.addKeyEvent)
     
       this.$set(this, 'lightBoxOn', true)
       this.$set(this, 'select', index)
-
-      this.cancelBubble($event)
     },
 
     addKeyEvent(event) {
@@ -140,19 +138,13 @@ export default {
       document.removeEventListener('keydown', this.addKeyEvent)
     },
 
-    nextImage($event) {
+    nextImage() {
       this.$set(this, 'select', (this.select + 1) % this.countImages)
-      this.cancelBubble($event)
     },
 
-    previousImage($event) {
+    previousImage() {
       this.$set(this, 'select', ((this.select - 1) + this.countImages) % this.countImages)
-      this.cancelBubble($event)
     },
-
-    cancelBubble($event) {
-      if ($event) $event.cancelBubble = true
-    }
   },
 
 

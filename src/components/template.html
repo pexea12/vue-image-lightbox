@@ -3,8 +3,8 @@
     class="vue-lb-container"
     v-show="lightBoxOn"
     v-if="images && images.length > 0"
-    @swiperight="previousImage($event)"
-    @swipeleft="nextImage($event)"
+    @swiperight.stop="previousImage()"
+    @swipeleft.stop="nextImage()"
   >
     <div class="vue-lb-content">
       <div class="vue-lb-header">
@@ -24,7 +24,7 @@
       </div> <!-- .vue-lb-header -->
       <div 
         class="vue-lb-figure"
-        @click="cancelBubble($event)"
+        @click.stop
       >
         <transition 
           mode="out-in" 
@@ -58,7 +58,7 @@
         type="button" 
         class="vue-lb-thumbnail-arrow vue-lb-thumbnail-left" 
         title="Previous" 
-        @click="previousImage($event)"
+        @click.stop="previousImage()"
       >
         <span>
           <svg fill="white" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 512 512">
@@ -72,7 +72,7 @@
         :key="index"
         :class="'vue-lb-modal-thumbnail' + (thumbSelect === index ? '-active' : '')" 
         v-lazy:background-image="image"
-        @click="showImage(index + beginThumbIndex, $event)"
+        @click.stop="showImage(index + beginThumbIndex)"
       >
       </div>
 
@@ -80,7 +80,7 @@
         type="button" 
         class="vue-lb-thumbnail-arrow vue-lb-thumbnail-right" 
         title="Next" 
-        @click="nextImage($event)"
+        @click.stop="nextImage()"
       >
         <span>
           <svg fill="white" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 512 512">
@@ -94,7 +94,7 @@
       type="button" 
       class="vue-lb-arrow vue-lb-left" 
       title="Previous" 
-      @click="previousImage($event)"
+      @click.stop="previousImage()"
     >
       <span>
         <svg fill="white" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 512 512">
@@ -107,7 +107,7 @@
       type="button" 
       class="vue-lb-arrow vue-lb-right" 
       title="Next" 
-      @click="nextImage($event)"
+      @click.stop="nextImage()"
     >
       <span>
         <svg fill="white" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 512 512" xml:space="preserve">
