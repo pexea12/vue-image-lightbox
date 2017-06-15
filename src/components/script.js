@@ -62,18 +62,6 @@ export default {
   },
 
   computed: {
-    // imagesSrc() {
-    //   if (this.siteLoading) {
-    //     return this.images.map(({ src }) => ({
-    //       src,
-    //       loading: this.siteLoading,
-    //       error: this.siteLoading,
-    //     }))
-    //   }
-
-    //   return this.images.map(({ src }) => src)
-    // },
-
     imagesThumb() {
       if (this.siteLoading) {
         return this.displayThumbs.map(({ thumb }) => ({
@@ -147,7 +135,6 @@ export default {
 
     closeLightBox() {
       this.$set(this, 'lightBoxOn', false)
-
       document.removeEventListener('keydown', this.addKeyEvent)
     },
 
@@ -157,7 +144,7 @@ export default {
 
     previousImage() {
       this.$set(this, 'select', ((this.select - 1) + this.countImages) % this.countImages)
-    }
+    },
   },
 
 
