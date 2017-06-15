@@ -1,10 +1,10 @@
 {
   "name": "vue-image-lightbox",
   "description": "A Vue.js package to display an image gallery lightbox",
-  "version": "5.4.2",
+  "version": "5.4.3",
   "author": "Nguyen Thien Dzung <dzungnguyenvn@outlook.com>",
   "license": "MIT",
-  "main": "src/components/Lightbox.vue",
+  "main": "dist/vue-image-lightbox.min.js",
   "files": [
     "dist",
     "src"
