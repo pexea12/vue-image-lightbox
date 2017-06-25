@@ -27,7 +27,7 @@ Then import it in your project
 At your entry point (`main.js` normally)
 ```javascript
 import Vue from 'vue'
-import VueLazyload from 'vue-lazyload'
+import VueLazyLoad from 'vue-lazyload'
 import VueTouch from 'vue-touch'
 ...
 Vue.use(VueLazyLoad)
