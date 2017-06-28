@@ -133,9 +133,10 @@ img.vue-lb-modal-image {
   bottom: 10px;
   height: 50px;
   padding: 0 50px;
-  position: absolute;
   text-align: center;
-  white-space: nowrap
+  white-space: nowrap;
+  display: inline-block;
+  position: relative;
 }
 
 .vue-lb-modal-thumbnail {
@@ -224,6 +225,17 @@ img.vue-lb-modal-image {
   overflow: hidden;
 }
 
+.vue-lb-thumbnail-wrapper {
+  bottom: 10px;
+  height: 50px;
+  left: 0;
+  margin: 0 auto;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: auto;
+}
+
 @media (min-width: 500px) {
   .vue-lb-thumbnail-arrow {
     width: 40px;
@@ -236,7 +248,7 @@ img.vue-lb-modal-image {
   }
 }
 
-.fade-enter-active, 
+.fade-enter-active,
 .fade-leave-active {
   transition: opacity .2s ease;
 }
