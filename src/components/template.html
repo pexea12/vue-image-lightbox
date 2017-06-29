@@ -3,8 +3,8 @@
     class="vue-lb-container"
     v-show="lightBoxOn"
     v-if="images && images.length > 0"
-    @swiperight.stop="previousImage()"
-    @swipeleft.stop="nextImage()"
+    @swiperight="previousImage()"
+    @swipeleft="nextImage()"
   >
     <div class="vue-lb-content">
       <div class="vue-lb-header">
