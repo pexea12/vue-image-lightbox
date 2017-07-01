@@ -3,6 +3,7 @@ const config = require('./webpack.base.conf')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const path = require('path')
+const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 
 config.output.filename = 'vue-image-lightbox.min.js'
 config.output.libraryTarget = 'umd'
@@ -51,6 +52,14 @@ config.plugins = (config.plugins || []).concat([
       screw_ie8: true,
     }
   }),
+
+  new OptimizeCSSPlugin({
+      cssProcessorOptions: {
+        options: {
+          safe: true
+        }
+      }
+    }),
 
   new webpack.optimize.OccurrenceOrderPlugin(),
 ])
