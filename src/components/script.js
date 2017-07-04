@@ -53,7 +53,6 @@ export default {
       select: this.startAt,
       thumbSelect: this.startAt,
       lightBoxOn: this.showLightBox,
-      countImages: this.images.length,
       displayThumbs: this.images.slice(0, this.nThumbs),
       timer: null,
 
@@ -62,6 +61,10 @@ export default {
   },
 
   computed: {
+    countImages() { 
+      return this.images.length
+    },
+
     imagesThumb() {
       if (this.siteLoading) {
         return this.displayThumbs.map(({ thumb }) => ({
@@ -75,16 +78,16 @@ export default {
     },
   },
 
-  mounted() {
-    if (this.autoPlay) {
-      this.timer = setInterval(() => {
-        this.nextImage()
-      }, this.autoPlayTime)
-    }
-  },
-
-
   watch: {
+    startAt() {
+      this.$set(this, 'select', this.startAt)
+      this.$set(this, 'thumbSelect', this.startAt)
+    },
+
+    images() {
+      this.$set(this, 'displayThumbs', this.images.slice(0, this.nThumbs))
+    },
+
     select() {
       let halfDown = Math.floor(this.nThumbs / 2)
       let mod = 1 - (this.nThumbs % 2)
@@ -117,6 +120,14 @@ export default {
         }
       } 
     },
+  },
+
+  mounted() {
+    if (this.autoPlay) {
+      this.timer = setInterval(() => {
+        this.nextImage()
+      }, this.autoPlayTime)
+    }
   },
 
   methods: {
