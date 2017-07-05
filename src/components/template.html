@@ -55,6 +55,7 @@
     <div class="vue-lb-thumbnail-wrapper">
     <div v-if="showThumbs" class="vue-lb-thumbnail">
       <button 
+        v-if="images.length > 1"
         type="button" 
         class="vue-lb-thumbnail-arrow vue-lb-thumbnail-left" 
         title="Previous" 
@@ -77,6 +78,7 @@
       </div>
 
       <button 
+        v-if="images.length > 1"
         type="button" 
         class="vue-lb-thumbnail-arrow vue-lb-thumbnail-right" 
         title="Next" 
@@ -91,6 +93,7 @@
     </div> <!-- .vue-lb-thumbnail -->
     </div>
     <button 
+      v-if="images.length > 1"
       type="button" 
       class="vue-lb-arrow vue-lb-left" 
       title="Previous" 
@@ -104,6 +107,7 @@
     </button>
 
     <button 
+      v-if="images.length > 1"
       type="button" 
       class="vue-lb-arrow vue-lb-right" 
       title="Next" 
