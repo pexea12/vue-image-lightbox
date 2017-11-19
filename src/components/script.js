@@ -115,8 +115,10 @@ export default {
       if (document != null) {
         if (value) {
           document.getElementsByTagName('body')[0].classList.add('vue-lb-open')
+          this.$emit('lightBoxOn', true)
         } else {
           document.getElementsByTagName('body')[0].classList.remove('vue-lb-open')
+          this.$emit('lightBoxOn', false)
         }
       } 
     },
