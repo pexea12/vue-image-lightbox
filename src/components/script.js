@@ -129,7 +129,7 @@ export default {
     },
     
     open(value) {
-      if (open) {
+      if (value) {
         this.openLightBox();
         this.$emit('opened');
       }
