@@ -3,7 +3,7 @@ require('./style.css')
 export default {
   props: {
     open: {
-			type: Boolean,
+		  type: Boolean,
 			default: false
 		},
     
