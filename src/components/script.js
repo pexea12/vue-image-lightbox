@@ -3,9 +3,9 @@ require('./style.css')
 export default {
   props: {
     open: {
-		  type: Boolean,
-			default: false
-		},
+      type: Boolean,
+      default: false
+    },
     
     images: {
       type: Array,
@@ -129,14 +129,11 @@ export default {
     },
     
     open(value) {
-			if (open) {
-				this.openLightBox();
+      if (open) {
+        this.openLightBox();
         this.$emit('opened');
-			} else {
-        this.$emit('closed');
       }
-				
-		},
+    },
   },
 
   mounted() {
@@ -167,8 +164,8 @@ export default {
     },
     
     openLightBox() {
-			this.showImage(this.beginThumbIndex);
-		},
+      this.showImage(this.beginThumbIndex);
+    },
 
     nextImage() {
       this.$set(this, 'select', (this.select + 1) % this.countImages)
