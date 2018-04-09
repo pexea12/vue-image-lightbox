@@ -2,6 +2,11 @@ require('./style.css')
 
 export default {
   props: {
+    open: {
+      type: Boolean,
+      default: false
+    },
+    
     images: {
       type: Array,
       required: true,
@@ -122,6 +127,13 @@ export default {
         }
       } 
     },
+    
+    open(value) {
+      if (value) {
+        this.openLightBox();
+        this.$emit('opened');
+      }
+    },
   },
 
   mounted() {
@@ -149,6 +161,10 @@ export default {
     closeLightBox() {
       this.$set(this, 'lightBoxOn', false)
       document.removeEventListener('keydown', this.addKeyEvent)
+    },
+    
+    openLightBox() {
+      this.showImage(this.beginThumbIndex);
     },
 
     nextImage() {
