@@ -256,3 +256,7 @@ img.vue-lb-modal-image {
 .fade-enter, .fade-leave-to {
   opacity: 0;
 }
+
+.no-scroll {
+  overflow-y: hidden;
+}
