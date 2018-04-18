@@ -123,9 +123,15 @@ export default {
     lightBoxOn (value) {
       if (document != null) {
         if (value) {
+          if (this.disableScroll) {
+            document.getElementsByTagName('html')[0].classList.add('no-scroll')
+          }
           document.getElementsByTagName('body')[0].classList.add('vue-lb-open')
           this.$emit('lightBoxOn', true)
         } else {
+          if (this.disableScroll) {
+            document.getElementsByTagName('html')[0].classList.remove('no-scroll')
+          }
           document.getElementsByTagName('body')[0].classList.remove('vue-lb-open')
           this.$emit('lightBoxOn', false)
         }
@@ -151,10 +157,6 @@ export default {
   methods: {
     showImage (index) {
       document.addEventListener('keydown', this.addKeyEvent)
-      if (this.disableScroll) {
-        document.getElementsByTagName('html')[0].classList.add('no-scroll')
-      }
-
       this.$set(this, 'lightBoxOn', true)
       this.$set(this, 'select', index)
     },
@@ -168,9 +170,6 @@ export default {
     closeLightBox () {
       this.$set(this, 'lightBoxOn', false)
       document.removeEventListener('keydown', this.addKeyEvent)
-      if (this.disableScroll) {
-        document.removeEventListener('keydown', this.addKeyEvent)
-      }
     },
 
     openLightBox () {
