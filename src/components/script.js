@@ -4,61 +4,61 @@ export default {
   props: {
     open: {
       type: Boolean,
-      default: false
+      default: false,
     },
 
     images: {
       type: Array,
-      required: true
+      required: true,
     },
 
     disableScroll: {
       type: Boolean,
-      default: false
+      default: false,
     },
 
     showLightBox: {
       type: Boolean,
-      default: true
+      default: true,
     },
 
     startAt: {
       type: Number,
-      default: 0
+      default: 0,
     },
 
     nThumbs: {
       type: Number,
-      default: 7
+      default: 7,
     },
 
     showThumbs: {
       type: Boolean,
-      default: true
+      default: true,
     },
 
     // Mode
     autoPlay: {
       type: Boolean,
-      default: false
+      default: false,
     },
 
     autoPlayTime: {
       type: Number,
-      default: 3000
+      default: 3000,
     },
 
     siteLoading: {
-      default: null
+      default: null,
     },
 
     showCaption: {
       type: Boolean,
-      default: false
+      default: false,
     }
   },
 
-  data () {
+  data() {
     return {
       select: this.startAt,
       thumbSelect: this.startAt,
@@ -88,16 +88,16 @@ export default {
   },
 
   watch: {
-    startAt () {
+    startAt() {
       this.$set(this, 'select', this.startAt)
       this.$set(this, 'thumbSelect', this.startAt)
     },
 
-    images () {
+    images() {
       this.$set(this, 'displayThumbs', this.images.slice(0, this.nThumbs))
     },
 
-    select () {
+    select() {
       let halfDown = Math.floor(this.nThumbs / 2)
       let mod = 1 - (this.nThumbs % 2)
 
@@ -120,7 +120,7 @@ export default {
       this.$set(this, 'displayThumbs', this.images.slice(this.select - halfDown + mod, this.select + halfDown + 1))
     },
 
-    lightBoxOn (value) {
+    lightBoxOn(value) {
       if (document != null) {
         if (value) {
           if (this.disableScroll) {
@@ -138,7 +138,7 @@ export default {
       }
     },
 
-    open (value) {
+    open(value) {
       if (value) {
         this.openLightBox()
         this.$emit('opened')
@@ -146,7 +146,7 @@ export default {
     },
   },
 
-  mounted () {
+  mounted() {
     if (this.autoPlay) {
       this.timer = setInterval(() => {
         this.nextImage()
@@ -155,37 +155,37 @@ export default {
   },
 
   methods: {
-    showImage (index) {
+    showImage(index) {
       document.addEventListener('keydown', this.addKeyEvent)
       this.$set(this, 'lightBoxOn', true)
       this.$set(this, 'select', index)
     },
 
-    addKeyEvent (event) {
+    addKeyEvent(event) {
       if (event.keyCode === 37) this.previousImage()
       if (event.keyCode === 39) this.nextImage()
       if (event.keyCode === 27) this.closeLightBox()
     },
 
-    closeLightBox () {
+    closeLightBox() {
       this.$set(this, 'lightBoxOn', false)
       document.removeEventListener('keydown', this.addKeyEvent)
     },
 
-    openLightBox () {
+    openLightBox() {
       this.showImage(this.beginThumbIndex)
     },
 
-    nextImage () {
+    nextImage() {
       this.$set(this, 'select', (this.select + 1) % this.countImages)
     },
 
-    previousImage () {
+    previousImage() {
       this.$set(this, 'select', ((this.select - 1) + this.countImages) % this.countImages)
     },
   },
 
-  beforeDestroy () {
+  beforeDestroy() {
     document.removeEventListener('keydown', this.addKeyEvent)
 
     if (this.autoPlay) {
