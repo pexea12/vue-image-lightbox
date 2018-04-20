@@ -14,7 +14,7 @@ export default {
 
     disableScroll: {
       type: Boolean,
-      default: false,
+      default: true,
     },
 
     showLightBox: {
