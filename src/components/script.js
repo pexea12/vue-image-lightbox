@@ -4,12 +4,17 @@ export default {
   props: {
     open: {
       type: Boolean,
-      default: false
+      default: false,
     },
-    
+
     images: {
       type: Array,
       required: true,
+    },
+
+    disableScroll: {
+      type: Boolean,
+      default: true,
     },
 
     showLightBox: {
@@ -34,7 +39,7 @@ export default {
 
     // Mode
     autoPlay: {
-      type: Boolean, 
+      type: Boolean,
       default: false,
     },
 
@@ -60,26 +65,25 @@ export default {
       lightBoxOn: this.showLightBox,
       displayThumbs: this.images.slice(0, this.nThumbs),
       timer: null,
-
       beginThumbIndex: 0,
     }
   },
 
   computed: {
-    countImages() { 
+    countImages () {
       return this.images.length
     },
 
-    imagesThumb() {
+    imagesThumb () {
       if (this.siteLoading) {
-        return this.displayThumbs.map(({ thumb }) => ({
+        return this.displayThumbs.map(({thumb}) => ({
           src: thumb,
           loading: this.siteLoading,
-          error: this.siteLoading,
+          error: this.siteLoading
         }))
       }
 
-      return this.displayThumbs.map(({ thumb }) => thumb)
+      return this.displayThumbs.map(({thumb}) => thumb)
     },
   },
 
@@ -119,19 +123,25 @@ export default {
     lightBoxOn(value) {
       if (document != null) {
         if (value) {
+          if (this.disableScroll) {
+            document.getElementsByTagName('html')[0].classList.add('no-scroll')
+          }
           document.getElementsByTagName('body')[0].classList.add('vue-lb-open')
           this.$emit('lightBoxOn', true)
         } else {
+          if (this.disableScroll) {
+            document.getElementsByTagName('html')[0].classList.remove('no-scroll')
+          }
           document.getElementsByTagName('body')[0].classList.remove('vue-lb-open')
           this.$emit('lightBoxOn', false)
         }
-      } 
+      }
     },
-    
+
     open(value) {
       if (value) {
-        this.openLightBox();
-        this.$emit('opened');
+        this.openLightBox()
+        this.$emit('opened')
       }
     },
   },
@@ -147,7 +157,6 @@ export default {
   methods: {
     showImage(index) {
       document.addEventListener('keydown', this.addKeyEvent)
-    
       this.$set(this, 'lightBoxOn', true)
       this.$set(this, 'select', index)
     },
@@ -162,9 +171,9 @@ export default {
       this.$set(this, 'lightBoxOn', false)
       document.removeEventListener('keydown', this.addKeyEvent)
     },
-    
+
     openLightBox() {
-      this.showImage(this.beginThumbIndex);
+      this.showImage(this.beginThumbIndex)
     },
 
     nextImage() {
@@ -175,7 +184,6 @@ export default {
       this.$set(this, 'select', ((this.select - 1) + this.countImages) % this.countImages)
     },
   },
-
 
   beforeDestroy() {
     document.removeEventListener('keydown', this.addKeyEvent)
