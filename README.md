@@ -144,6 +144,12 @@ How to use:
       <td>false</td>
       <td>Whether to show caption or not</td>
     </tr>
+    <tr>
+      <td>disableScroll</td>
+      <td>Boolean</td>
+      <td>true</td>
+      <td>set to `true` to avoid scrolling views behind lightbox</td>
+    </tr>
   </tbody>
 </table>
 
@@ -187,3 +193,4 @@ Most of the CSS belongs to [react-images](https://github.com/jossmac/react-image
 ### Contributors:
 - [@imcvampire](https://github.com/imcvampire)
 - [@krystalcampioni](https://github.com/krystalcampioni) 
+- [@jstr14](https://github.com/jstr14)
