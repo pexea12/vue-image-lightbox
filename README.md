@@ -73,6 +73,7 @@ How to use:
     thumb: 'http://example.com/thumb.jpg',
     src: 'http://example.com/image.jpg',
     caption: 'caption to display. receive <html> <b>tag</b>', // Optional
+    srcset: '...' // Optional for displaying responsive images
   }
 ]
 ```
