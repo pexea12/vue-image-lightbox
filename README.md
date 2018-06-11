@@ -206,22 +206,22 @@ How to use:
     <tr>
       <td>load-more</td>
       <td>()</td>
-      <th>Load more images</th>
+      <td>Load more images</td>
     </tr>
     <tr>
       <td>images-start-at</td>
       <td>()</td>
-      <th>Showing image with index equal startAt</th>
+      <td>Showing image with index equal startAt</td>
     </tr>
     <tr>
       <td>images-begin</td>
       <td>()</td>
-      <th>Showing first image</th>
+      <td>Showing first image</td>
     </tr>
     <tr>
       <td>images-end</td>
       <td>()</td>
-      <th>Showing last image</th>
+      <td>Showing last image</td>
     </tr>
   </tbody>
 </table>
