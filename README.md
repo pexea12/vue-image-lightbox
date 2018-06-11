@@ -151,6 +151,12 @@ How to use:
       <td>true</td>
       <td>set to `true` to avoid scrolling views behind lightbox</td>
     </tr>
+    <tr>
+      <td>lengthToLoadMore</td>
+      <td>Number</td>
+      <td>0</td>
+      <td>Minimum length unto end to emit load more event</td>
+    </tr>
   </tbody>
 </table>
 
@@ -183,6 +189,39 @@ How to use:
       <td>showImage</td>
       <td>(index)</td>
       <td>Show the image at index</td>
+    </tr>
+  </tbody>
+</table>
+
+### Events
+<table>
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>arguments</th>
+      <th>description</th>
+    </tr>
+  </thead>  
+  <tbody>
+    <tr>
+      <td>load-more</td>
+      <td>()</td>
+      <th>Load more images</th>
+    </tr>
+    <tr>
+      <td>images-start-at</td>
+      <td>()</td>
+      <th>Showing image with index equal startAt</th>
+    </tr>
+    <tr>
+      <td>images-begin</td>
+      <td>()</td>
+      <th>Showing first image</th>
+    </tr>
+    <tr>
+      <td>images-end</td>
+      <td>()</td>
+      <th>Showing last image</th>
     </tr>
   </tbody>
 </table>

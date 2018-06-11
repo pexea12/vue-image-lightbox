@@ -55,6 +55,11 @@ export default {
     showCaption: {
       type: Boolean,
       default: false,
+    },
+
+    lengthToLoadMore: {
+      type: Number,
+      default: 0
     }
   },
 
@@ -177,11 +182,21 @@ export default {
     },
 
     nextImage() {
-      this.$set(this, 'select', (this.select + 1) % this.countImages)
+      const imgIndex = this.select + 1
+
+      if (imgIndex >= this.countImages - this.lengthToLoadMore - 1) this.$emit('load-more')
+      if (imgIndex >= this.countImages - 1) this.$emit('images-end')
+
+      this.$set(this, 'select', (imgIndex) % this.countImages)
     },
 
     previousImage() {
-      this.$set(this, 'select', ((this.select - 1) + this.countImages) % this.countImages)
+      const imgIndex = this.select - 1
+
+      if (imgIndex === 0) this.$emit('images-begin')
+      if (imgIndex === this.startAt) this.$emit('images-start-at')
+
+      this.$set(this, 'select', ((imgIndex) + this.countImages) % this.countImages)
     },
   },
 
