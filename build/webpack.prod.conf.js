@@ -4,12 +4,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const path = require('path')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-config.output.filename = 'vue-image-lightbox.min.js'
-config.output.libraryTarget = 'umd'
-config.output.library = 'Lightbox'
-
-config.entry = path.resolve(__dirname, '../src/components/LightBox.vue')
 
 config.devtool = '#source-map'
 
@@ -22,6 +18,22 @@ config.module.rules.push({
 })
 
 config.plugins = (config.plugins || []).concat([
+  new HtmlWebpackPlugin({
+    filename: 'index.html',
+    template: path.resolve(__dirname, '../src/index.html'),
+    inject: true,
+    minify: {
+      collapseWhitespace: true,
+      minifyCSS: true,
+      minifyJS: true,
+      removeComments: true,
+      removeEmptyAttributes: true,
+      removeAttributeQuotes: true,
+      removeScriptTypeAttributes: true,
+      removeStyleLinkTypeAttributes: true,
+    },
+  }),
+
   new MiniCssExtractPlugin({
     filename: 'vue-image-lightbox.min.css'
   }),
