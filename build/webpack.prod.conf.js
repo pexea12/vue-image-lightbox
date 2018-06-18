@@ -9,7 +9,7 @@ config.output.filename = 'vue-image-lightbox.min.js'
 config.output.libraryTarget = 'umd'
 config.output.library = 'Lightbox'
 
-config.entry = path.resolve(__dirname, '../src/components/Lightbox.vue')
+config.entry = path.resolve(__dirname, '../src/components/LightBox.vue')
 
 config.devtool = '#source-map'
 
