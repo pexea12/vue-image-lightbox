@@ -25,17 +25,12 @@ config.module.rules = (config.module.rules || []).concat([
 ])
 
 config.plugins = (config.plugins || []).concat([
-  new webpack.DefinePlugin({
-    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-  }),
-
   new HtmlWebpackPlugin({
-    title: 'BookUp',
+    title: 'Vue Image Lightbox',
     filename: 'index.html',
     template: path.resolve(__dirname, '../src/index.html'),
   }),
 
-  new webpack.optimize.OccurrenceOrderPlugin(),
   new webpack.NoEmitOnErrorsPlugin(),
 ])
 

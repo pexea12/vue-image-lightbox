@@ -1,10 +1,9 @@
 <div @click.stop="closeLightBox">
-  <v-touch
+  <div
     class="vue-lb-container"
     v-show="lightBoxOn"
     v-if="images && images.length > 0"
-    @swiperight="previousImage()"
-    @swipeleft="nextImage()"
+    ref="container"
   >
     <div class="vue-lb-content">
       <div class="vue-lb-header">
@@ -31,10 +30,10 @@
           name="fade"
         >
           <img 
-           :key="images[select].src"
-           :src="images[select].src"
-           :srcset="images[select].srcset || ''"
-           class="vue-lb-modal-image"
+            :key="images[select].src"
+            :src="images[select].src"
+            :srcset="images[select].srcset || ''"
+            class="vue-lb-modal-image"
           >
         </transition>
 
@@ -47,7 +46,7 @@
         <div class="vue-lb-footer">
           <div class="vue-lb-footer-info"></div>
           <div class="vue-lb-footer-count">
-            {{ select + 1 }}/{{ countImages }}
+            {{ select + 1 }}/{{ images.length }}
           </div> 
         </div> 
 
@@ -72,9 +71,10 @@
       <div 
         v-for="(image, index) in imagesThumb" 
         :key="index"
-        :class="'vue-lb-modal-thumbnail' + (thumbSelect === index ? '-active' : '')" 
+        :class="'vue-lb-modal-thumbnail' + (select === index ? '-active' : '')" 
         v-lazy:background-image="image"
-        @click.stop="showImage(index + beginThumbIndex)"
+        v-show="index >= thumbIndex.begin && index <= thumbIndex.end"
+        @click.stop="showImage(index)"
       >
       </div>
 
@@ -120,5 +120,5 @@
         </svg>
       </span>
     </button>
-  </v-touch> <!-- .vue-lb-container --> 
+  </div> <!-- .vue-lb-container --> 
 </div>

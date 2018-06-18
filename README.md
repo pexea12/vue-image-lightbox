@@ -19,8 +19,8 @@ yarn dev
 Install the package:
 
 ```
-npm install vue-image-lightbox vue-lazyload vue-touch@next
-yarn add vue-image-lightbox vue-lazyload vue-touch@next
+npm install vue-image-lightbox vue-lazyload
+yarn add vue-image-lightbox vue-lazyload
 ```
 
 Then import it in your project
@@ -28,19 +28,17 @@ At your entry point (`main.js` normally)
 ```javascript
 import Vue from 'vue'
 import VueLazyLoad from 'vue-lazyload'
-import VueTouch from 'vue-touch'
 ...
 Vue.use(VueLazyLoad)
-Vue.use(VueTouch, { name: 'v-touch' })
 ```
 
 and use the lightbox:
 ```javascript
-import Lightbox from 'vue-image-lightbox'
+import LightBox from 'vue-image-lightbox'
 
 export default {
   components: {
-    Lightbox,
+    LightBox,
   },
 }
 ```
@@ -63,7 +61,7 @@ require('vue-image-lightbox/dist/vue-image-lightbox.min.css')
 ```
 How to use:
 ```html
-<lightbox :images="images"></lightbox>
+<LightBox :images="images"></LightBox>
 ```
 
 `images` has the structure:
@@ -113,7 +111,7 @@ How to use:
       <td>nThumbs</td>
       <td>Number</td>
       <td>7</td>
-      <td>Number of thumnail images</td>
+      <td>Number of thumbnail images</td>
     </tr>
     <tr>
       <td>showThumbs</td>
@@ -194,37 +192,12 @@ How to use:
 </table>
 
 ### Events
-<table>
-  <thead>
-    <tr>
-      <th>name</th>
-      <th>arguments</th>
-      <th>description</th>
-    </tr>
-  </thead>  
-  <tbody>
-    <tr>
-      <td>load-more</td>
-      <td>()</td>
-      <td>Load more images</td>
-    </tr>
-    <tr>
-      <td>images-start-at</td>
-      <td>()</td>
-      <td>Showing image with index equal startAt</td>
-    </tr>
-    <tr>
-      <td>images-begin</td>
-      <td>()</td>
-      <td>Showing first image</td>
-    </tr>
-    <tr>
-      <td>images-end</td>
-      <td>()</td>
-      <td>Showing last image</td>
-    </tr>
-  </tbody>
-</table>
+
+- `onOpened(value)`: `true` to emit when the lightbox is opened and `false` when it is closed.
+- `onLastIndex`: Emit when the current image is the last one of the list.
+- `onFirstIndex`: Emit when the current image is the first one of the list.
+- `onStartIndex`: Emit when the current image is at the `startAt` index (specified in the properties).
+- `onLoad`: Emit when there are `lengthToLoadMore` images left in the array (specified in the properties). For example, if `lengthToLoadMore = 2` and there are 7 images in your array, when you reach index 4 (which means there are 2 images left which are not discovered yet), this event will be emitted. After that, if the image array are updated and there are totally 15 images, the event will be emitted at index 12.
 
 ## CREDITS
 
@@ -234,3 +207,4 @@ Most of the CSS belongs to [react-images](https://github.com/jossmac/react-image
 - [@imcvampire](https://github.com/imcvampire)
 - [@krystalcampioni](https://github.com/krystalcampioni) 
 - [@jstr14](https://github.com/jstr14)
+- [@PedroBatista333](https://github.com/PedroBatista333)
