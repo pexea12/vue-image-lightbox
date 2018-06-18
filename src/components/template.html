@@ -73,7 +73,7 @@
         :key="index"
         :class="'vue-lb-modal-thumbnail' + (select === index ? '-active' : '')" 
         v-lazy:background-image="image"
-        v-show="index >= thumbIndex.start && index <= thumbIndex.end"
+        v-show="index >= thumbIndex.begin && index <= thumbIndex.end"
         @click.stop="showImage(index)"
       >
       </div>

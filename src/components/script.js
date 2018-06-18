@@ -53,7 +53,12 @@ export default {
     showCaption: {
       type: Boolean,
       default: false,
-    }
+    },
+
+    lengthToLoadMore: {
+      type: Number,
+      default: 0
+    },
   },
 
   data() {
@@ -70,18 +75,18 @@ export default {
 
       if (this.select >= halfDown && this.select < this.images.length - halfDown)
         return {
-          start: this.select - halfDown + (1 - this.nThumbs % 2),
+          begin: this.select - halfDown + (1 - this.nThumbs % 2),
           end: this.select + halfDown,
         }
 
       if (this.select < halfDown)
         return {
-          start: 0,
+          begin: 0,
           end: this.nThumbs - 1,
         }
 
       return {
-        start: this.images.length - this.nThumbs,
+        begin: this.images.length - this.nThumbs,
         end: this.images.length - 1,
       }
     },
@@ -104,6 +109,20 @@ export default {
       if (document != null) {
         this.onToggleLightBox(value)
       }
+    },
+
+    select() {
+      if (this.select >= this.images.length - this.lengthToLoadMore - 1) 
+        this.$emit('onLoad')
+
+      if (this.select === this.images.length - 1) 
+        this.$emit('onLastIndex')
+
+      if (this.select === 0) 
+        this.$emit('onFirstIndex')
+
+      if (this.select === this.startAt) 
+        this.$emit('onStartIndex')
     },
   },
 
@@ -163,7 +182,7 @@ export default {
     },
 
     previousImage() {
-      this.$set(this, 'select', ((this.select - 1) + this.images.length) % this.images.length)
+      this.$set(this, 'select', (this.select + this.images.length - 1) % this.images.length)
     },
   },
 

@@ -149,6 +149,12 @@ How to use:
       <td>true</td>
       <td>set to `true` to avoid scrolling views behind lightbox</td>
     </tr>
+    <tr>
+      <td>lengthToLoadMore</td>
+      <td>Number</td>
+      <td>0</td>
+      <td>Minimum length unto end to emit load more event</td>
+    </tr>
   </tbody>
 </table>
 
@@ -187,7 +193,11 @@ How to use:
 
 ### Events
 
-`onOpened(value)`: `true` to emit event when the lightbox is opened and `false` when it is closed.
+- `onOpened(value)`: `true` to emit when the lightbox is opened and `false` when it is closed.
+- `onLastIndex`: Emit when the current image is the last one of the list.
+- `onFirstIndex`: Emit when the current image is the first one of the list.
+- `onStartIndex`: Emit when the current image is at the `startAt` index (specified in the properties).
+- `onLoad`: Emit when there are `lengthToLoadMore` images left in the array (specified in the properties). For example, if `lengthToLoadMore = 2` and there are 7 images in your array, when you reach index 4 (which means there are 2 images left which are not discovered yet), this event will be emitted. After that, if the image array are updated and there are totally 15 images, the event will be emitted at index 12.
 
 ## CREDITS
 
@@ -197,3 +207,4 @@ Most of the CSS belongs to [react-images](https://github.com/jossmac/react-image
 - [@imcvampire](https://github.com/imcvampire)
 - [@krystalcampioni](https://github.com/krystalcampioni) 
 - [@jstr14](https://github.com/jstr14)
+- [@PedroBatista333](https://github.com/PedroBatista333)
