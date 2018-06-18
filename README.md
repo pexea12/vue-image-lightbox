@@ -113,7 +113,7 @@ How to use:
       <td>nThumbs</td>
       <td>Number</td>
       <td>7</td>
-      <td>Number of thumnail images</td>
+      <td>Number of thumbnail images</td>
     </tr>
     <tr>
       <td>showThumbs</td>
@@ -186,6 +186,10 @@ How to use:
     </tr>
   </tbody>
 </table>
+
+### Events
+
+`onOpened(value)`: `true` to emit event when the lightbox is opened and `false` when it is closed.
 
 ## CREDITS
 

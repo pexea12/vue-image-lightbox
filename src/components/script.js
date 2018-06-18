@@ -1,3 +1,9 @@
+import Vue from 'vue'
+import VueLazyload from 'vue-lazyload'
+import Hammer from 'hammerjs'
+
+Vue.use(VueLazyload)
+
 require('./style.css')
 
 
@@ -113,6 +119,16 @@ export default {
     }
 
     this.onToggleLightBox(this.lightBoxOn)
+
+    const hammer = new Hammer(this.$refs.container)
+
+    hammer.on('swiperight', () => {
+      this.previousImage()
+    })
+
+    hammer.on('swipeleft', () => {
+      this.nextImage()
+    })
   },
 
   methods: {

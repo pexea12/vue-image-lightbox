@@ -31,8 +31,8 @@
   },
   "homepage": "https://github.com/pexea12/vue-image-lightbox",
   "dependencies": {
-    "vue-lazyload": "^1.0.3",
-    "vue-touch": "next"
+    "hammerjs": "^2.0.8",
+    "vue-lazyload": "^1.2.6"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
