@@ -47,7 +47,7 @@
         <div class="vue-lb-footer">
           <div class="vue-lb-footer-info"></div>
           <div class="vue-lb-footer-count">
-            {{ select + 1 }}/{{ countImages }}
+            {{ select + 1 }}/{{ images.length }}
           </div> 
         </div> 
 
@@ -72,9 +72,10 @@
       <div 
         v-for="(image, index) in imagesThumb" 
         :key="index"
-        :class="'vue-lb-modal-thumbnail' + (thumbSelect === index ? '-active' : '')" 
+        :class="'vue-lb-modal-thumbnail' + (select === index ? '-active' : '')" 
         v-lazy:background-image="image"
-        @click.stop="showImage(index + beginThumbIndex)"
+        v-show="index >= thumbIndex.start && index <= thumbIndex.end"
+        @click.stop="showImage(index)"
       >
       </div>
 

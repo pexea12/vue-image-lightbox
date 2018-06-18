@@ -1,5 +1,6 @@
 require('./style.css')
 
+
 export default {
   props: {
     open: {
@@ -63,63 +64,46 @@ export default {
       select: this.startAt,
       thumbSelect: this.startAt,
       lightBoxOn: this.showLightBox,
-      displayThumbs: this.images.slice(0, this.nThumbs),
       timer: null,
-      beginThumbIndex: 0,
     }
   },
 
   computed: {
-    countImages () {
-      return this.images.length
+    thumbIndex() {
+      const halfDown = Math.floor(this.nThumbs / 2)
+
+      if (this.select >= halfDown && this.select < this.images.length - halfDown)
+        return {
+          start: this.select - halfDown + (1 - this.nThumbs % 2),
+          end: this.select + halfDown,
+        }
+
+      if (this.select < halfDown)
+        return {
+          start: 0,
+          end: this.nThumbs - 1,
+        }
+
+      return {
+        start: this.images.length - this.nThumbs,
+        end: this.images.length - 1,
+      }
     },
 
-    imagesThumb () {
+    imagesThumb() {
       if (this.siteLoading) {
-        return this.displayThumbs.map(({thumb}) => ({
+        return this.images.map(({thumb}) => ({
           src: thumb,
           loading: this.siteLoading,
           error: this.siteLoading
         }))
       }
 
-      return this.displayThumbs.map(({thumb}) => thumb)
+      return this.images.map(({thumb}) => thumb)
     },
   },
 
   watch: {
-    startAt() {
-      this.$set(this, 'select', this.startAt)
-      this.$set(this, 'thumbSelect', this.startAt)
-    },
-
-    images() {
-      this.$set(this, 'displayThumbs', this.images.slice(0, this.nThumbs))
-    },
-
-    select() {
-      let halfDown = Math.floor(this.nThumbs / 2)
-      let mod = 1 - (this.nThumbs % 2)
-
-      if (this.select <= halfDown) {
-        this.$set(this, 'beginThumbIndex', 0)
-        this.$set(this, 'thumbSelect', this.select)
-        this.$set(this, 'displayThumbs', this.images.slice(0, this.nThumbs))
-        return
-      }
-
-      if (this.select >= this.countImages - halfDown) {
-        this.$set(this, 'beginThumbIndex', this.countImages - this.nThumbs)
-        this.$set(this, 'thumbSelect', this.nThumbs - (this.countImages - this.select))
-        this.$set(this, 'displayThumbs', this.images.slice(-this.nThumbs))
-        return
-      }
-
-      this.$set(this, 'beginThumbIndex', this.select - halfDown + mod)
-      this.$set(this, 'thumbSelect', halfDown - mod)
-      this.$set(this, 'displayThumbs', this.images.slice(this.select - halfDown + mod, this.select + halfDown + 1))
-    },
-
     lightBoxOn(value) {
       if (document != null) {
         if (value) {
@@ -140,8 +124,7 @@ export default {
 
     open(value) {
       if (value) {
-        this.openLightBox()
-        this.$emit('opened')
+        this.showImage(this.startAt)
       }
     },
   },
@@ -162,9 +145,9 @@ export default {
     },
 
     addKeyEvent(event) {
-      if (event.keyCode === 37) this.previousImage()
-      if (event.keyCode === 39) this.nextImage()
-      if (event.keyCode === 27) this.closeLightBox()
+      if (event.keyCode === 37) this.previousImage() // left arrow
+      if (event.keyCode === 39) this.nextImage() // right arrow
+      if (event.keyCode === 27) this.closeLightBox() // esc
     },
 
     closeLightBox() {
@@ -172,16 +155,12 @@ export default {
       document.removeEventListener('keydown', this.addKeyEvent)
     },
 
-    openLightBox() {
-      this.showImage(this.beginThumbIndex)
-    },
-
     nextImage() {
-      this.$set(this, 'select', (this.select + 1) % this.countImages)
+      this.$set(this, 'select', (this.select + 1) % this.images.length)
     },
 
     previousImage() {
-      this.$set(this, 'select', ((this.select - 1) + this.countImages) % this.countImages)
+      this.$set(this, 'select', ((this.select - 1) + this.images.length) % this.images.length)
     },
   },
 
