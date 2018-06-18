@@ -13,24 +13,25 @@
           >
         </li>
       </ul>
-      <lightbox 
+      <LightBox 
         :images="images" 
         ref="lightbox"
         :show-caption="true"
-      ></lightbox>
+        :show-light-box="false"
+      ></LightBox>
     </div>
   </div>
 </template>
 
 <script>
-import Lightbox from 'components/Lightbox'
+import LightBox from 'components/LightBox'
 
 import siteLoading from './siteloading.gif'
 import images from './dummy'
 
 export default {
   components: {
-    Lightbox,
+    LightBox,
   },
 
   data () {

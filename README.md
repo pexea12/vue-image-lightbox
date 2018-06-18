@@ -34,11 +34,11 @@ Vue.use(VueLazyLoad)
 
 and use the lightbox:
 ```javascript
-import Lightbox from 'vue-image-lightbox'
+import LightBox from 'vue-image-lightbox'
 
 export default {
   components: {
-    Lightbox,
+    LightBox,
   },
 }
 ```
@@ -61,7 +61,7 @@ require('vue-image-lightbox/dist/vue-image-lightbox.min.css')
 ```
 How to use:
 ```html
-<lightbox :images="images"></lightbox>
+<LightBox :images="images"></LightBox>
 ```
 
 `images` has the structure:
