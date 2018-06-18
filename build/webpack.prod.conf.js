@@ -46,9 +46,7 @@ config.plugins = (config.plugins || []).concat([
 
   new OptimizeCSSPlugin({
     cssProcessorOptions: {
-      options: {
-        safe: true
-      }
+      safe: true,
     }
   }),
 ])
