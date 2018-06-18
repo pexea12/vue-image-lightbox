@@ -96,7 +96,7 @@ export default {
         return this.images.map(({thumb}) => ({
           src: thumb,
           loading: this.siteLoading,
-          error: this.siteLoading
+          error: this.siteLoading,
         }))
       }
 
