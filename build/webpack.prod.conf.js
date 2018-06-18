@@ -1,6 +1,6 @@
 const webpack = require('webpack')
 const config = require('./webpack.base.conf')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const path = require('path')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
@@ -15,10 +15,10 @@ config.devtool = '#source-map'
 
 config.module.rules.push({
   test: /\.css$/,
-  use: ExtractTextPlugin.extract({
-    fallback: "style-loader",
-    use: "css-loader",
-  }),
+  use: [
+    MiniCssExtractPlugin.loader,
+    'css-loader',
+  ],
 })
 
 config.plugins = (config.plugins || []).concat([
@@ -26,8 +26,8 @@ config.plugins = (config.plugins || []).concat([
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
   }),
 
-  new ExtractTextPlugin({
-    filename: 'vue-image-lightbox.min.css',
+  new MiniCssExtractPlugin({
+    filename: 'vue-image-lightbox.min.css'
   }),
 
   new UglifyJSPlugin({

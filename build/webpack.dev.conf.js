@@ -30,7 +30,7 @@ config.plugins = (config.plugins || []).concat([
   }),
 
   new HtmlWebpackPlugin({
-    title: 'BookUp',
+    title: 'Vue Image Lightbox',
     filename: 'index.html',
     template: path.resolve(__dirname, '../src/index.html'),
   }),
