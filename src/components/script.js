@@ -3,11 +3,6 @@ require('./style.css')
 
 export default {
   props: {
-    open: {
-      type: Boolean,
-      default: false,
-    },
-
     images: {
       type: Array,
       required: true,
@@ -62,7 +57,6 @@ export default {
   data() {
     return {
       select: this.startAt,
-      thumbSelect: this.startAt,
       lightBoxOn: this.showLightBox,
       timer: null,
     }
@@ -106,25 +100,7 @@ export default {
   watch: {
     lightBoxOn(value) {
       if (document != null) {
-        if (value) {
-          if (this.disableScroll) {
-            document.getElementsByTagName('html')[0].classList.add('no-scroll')
-          }
-          document.getElementsByTagName('body')[0].classList.add('vue-lb-open')
-          this.$emit('lightBoxOn', true)
-        } else {
-          if (this.disableScroll) {
-            document.getElementsByTagName('html')[0].classList.remove('no-scroll')
-          }
-          document.getElementsByTagName('body')[0].classList.remove('vue-lb-open')
-          this.$emit('lightBoxOn', false)
-        }
-      }
-    },
-
-    open(value) {
-      if (value) {
-        this.showImage(this.startAt)
+        this.onToggleLightBox(value)
       }
     },
   },
@@ -135,11 +111,27 @@ export default {
         this.nextImage()
       }, this.autoPlayTime)
     }
+
+    this.onToggleLightBox(this.lightBoxOn)
   },
 
   methods: {
+    onToggleLightBox(value) {
+      if (this.disableScroll) {
+        document.querySelector('html').classList.toggle('no-scroll', value)
+      }
+
+      document.querySelector('body').classList.toggle('vue-lb-open', value)
+      this.$emit('onOpened', value)
+
+      if (value) {
+        document.addEventListener('keydown', this.addKeyEvent)
+      } else {
+        document.removeEventListener('keydown', this.addKeyEvent)
+      }
+    },
+
     showImage(index) {
-      document.addEventListener('keydown', this.addKeyEvent)
       this.$set(this, 'lightBoxOn', true)
       this.$set(this, 'select', index)
     },
@@ -152,7 +144,6 @@ export default {
 
     closeLightBox() {
       this.$set(this, 'lightBoxOn', false)
-      document.removeEventListener('keydown', this.addKeyEvent)
     },
 
     nextImage() {
