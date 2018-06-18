@@ -1,8 +1,4 @@
-import Vue from 'vue'
-import VueLazyload from 'vue-lazyload'
 import Hammer from 'hammerjs'
-
-Vue.use(VueLazyload)
 
 require('./style.css')
 

@@ -1,4 +1,5 @@
 const path = require('path')
+const webpack = require('webpack')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 
@@ -54,5 +55,11 @@ module.exports = {
   },
   plugins: [
     new VueLoaderPlugin(),
+    
+    new webpack.optimize.OccurrenceOrderPlugin(),
+
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+    }),
   ],
 }
