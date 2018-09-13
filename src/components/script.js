@@ -135,15 +135,17 @@ export default {
 
     this.onToggleLightBox(this.lightBoxOn)
 
-    const hammer = new Hammer(this.$refs.container)
+    if (this.$refs.container) {
+      const hammer = new Hammer(this.$refs.container)
 
-    hammer.on('swiperight', () => {
-      this.previousImage()
-    })
+      hammer.on('swiperight', () => {
+        this.previousImage()
+      })
 
-    hammer.on('swipeleft', () => {
-      this.nextImage()
-    })
+      hammer.on('swipeleft', () => {
+        this.nextImage()
+      })
+    }
   },
 
   methods: {
