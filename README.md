@@ -224,8 +224,12 @@ How to use:
 ### Slots
 
 #### close
+The content of the close button.
 
 #### footer
+The content of the footer under the image.
+
+##### slot-scopes
 <table>
   <thead>
     <tr>
@@ -249,12 +253,16 @@ How to use:
 </table>
 
 #### previous
+The previous button on the main image.
 
 #### next
+The next button on the main image.
 
 #### previousThumb
+The previous button on the thumbs list.
 
 #### nextThumb
+The next button on the thumbs list.
 
 ### Events
 
