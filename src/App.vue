@@ -18,7 +18,8 @@
         ref="lightbox"
         :show-caption="true"
         :show-light-box="false"
-      ></LightBox>
+      >
+      </LightBox>
     </div>
   </div>
 </template>

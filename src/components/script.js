@@ -59,6 +59,31 @@ export default {
       type: Number,
       default: 0
     },
+
+    closeText: {
+      type: String,
+      default: 'Close (Esc)'
+    },
+
+    previousText: {
+      type: String,
+      default: 'Previous',
+    },
+
+    nextText: {
+      type: String,
+      default: 'Next',
+    },
+
+    previousThumbText: {
+      type: String,
+      default: 'Previous'
+    },
+
+    nextThumbText: {
+      type: String,
+      default: 'Next'
+    },
   },
 
   data() {

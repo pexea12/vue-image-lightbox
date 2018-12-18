@@ -155,6 +155,36 @@ How to use:
       <td>0</td>
       <td>Minimum length unto end to emit load more event</td>
     </tr>
+    <tr>
+      <td>closeText</td>
+      <td>String</td>
+      <td>Close (Esc)</td>
+      <td>Text for the close button</td>
+    </tr>
+    <tr>
+      <td>previousText</td>
+      <td>String</td>
+      <td>Previous</td>
+      <td>Text for the previous image button</td>
+    </tr>
+    <tr>
+      <td>nextText</td>
+      <td>String</td>
+      <td>Next</td>
+      <td>Text for the next image button</td>
+    </tr>
+    <tr>
+      <td>previousThumbText</td>
+      <td>String</td>
+      <td>Previous</td>
+      <td>Text for the previous thumb image button</td>
+    </tr>
+    <tr>
+      <td>nextThumbText</td>
+      <td>String</td>
+      <td>Next</td>
+      <td>Text for the next thumb image button</td>
+    </tr>
   </tbody>
 </table>
 
@@ -190,6 +220,41 @@ How to use:
     </tr>
   </tbody>
 </table>
+
+### Slots
+
+#### close
+
+#### footer
+<table>
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>type</th>
+      <th>description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>current</td>
+      <td>integer</td>
+      <td>Number of the current image displayed</td>
+    </tr>
+    <tr>
+      <td>total</td>
+      <td>integer</td>
+      <td>Numbers of the images</td>
+    </tr>
+  </tbody>
+</table>
+
+#### previous
+
+#### next
+
+#### previousThumb
+
+#### nextThumb
 
 ### Events
 
