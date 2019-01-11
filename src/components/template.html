@@ -48,7 +48,12 @@
         <div class="vue-lb-footer">
           <div class="vue-lb-footer-info"></div>
           <div class="vue-lb-footer-count">
-            <slot name="footer" :current="select + 1" :total="images.length">{{ select + 1 }}/{{ images.length }}</slot>
+            <slot name="footer"
+                  :current="select + 1"
+                  :total="images.length"
+            >
+              {{ select + 1 }} / {{ images.length }}
+            </slot>
           </div> 
         </div> 
 
