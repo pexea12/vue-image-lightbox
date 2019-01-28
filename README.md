@@ -281,3 +281,4 @@ Most of the CSS belongs to [react-images](https://github.com/jossmac/react-image
 - [@krystalcampioni](https://github.com/krystalcampioni) 
 - [@jstr14](https://github.com/jstr14)
 - [@PedroBatista333](https://github.com/PedroBatista333)
+- [@vtalbot](https://github.com/vtalbot)
