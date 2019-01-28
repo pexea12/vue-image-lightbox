@@ -30,12 +30,14 @@
         <transition 
           mode="out-in" 
           name="fade"
+          @enter="transitionEnter"
         >
           <img 
             :key="images[select].src"
             :src="images[select].src"
             :srcset="images[select].srcset || ''"
             class="vue-lb-modal-image"
+            :id="'vue-lb-modal-image-' + select"
           >
         </transition>
 

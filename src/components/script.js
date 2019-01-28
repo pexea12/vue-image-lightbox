@@ -5,7 +5,8 @@ if (typeof window !== 'undefined') {
 }
 
 require('./style.css')
-
+require('./magnifier.css')
+import magnifier from './magnifier'
 
 export default {
   props: {
@@ -43,6 +44,11 @@ export default {
     autoPlay: {
       type: Boolean,
       default: false,
+    },
+
+    zoom: {
+      type: Boolean,
+      default: false
     },
 
     autoPlayTime: {
@@ -95,6 +101,7 @@ export default {
       select: this.startAt,
       lightBoxOn: this.showLightBox,
       timer: null,
+      magnifier: null
     }
   },
 
@@ -141,7 +148,7 @@ export default {
     },
 
     select() {
-      if (this.select >= this.images.length - this.lengthToLoadMore - 1) 
+      if (this.select >= this.images.length - this.lengthToLoadMore - 1)
         this.$emit('onLoad')
 
       if (this.select === this.images.length - 1) 
@@ -214,6 +221,27 @@ export default {
 
     previousImage() {
       this.$set(this, 'select', (this.select + this.images.length - 1) % this.images.length)
+    },
+
+    transitionEnter() {
+      if (! this.zoom)
+        return
+
+      this.enableZoom()
+    },
+
+    enableZoom() {
+
+      if (! this.magnifier)
+        this.magnifier = new magnifier.Magnifier(new magnifier.Event())
+
+      this.magnifier.attach({
+        thumb: '#vue-lb-modal-image-' + this.select,
+        large: this.images[this.select].src,
+        mode: 'inside',
+        zoom: 3,
+        zoomable: true
+      })
     },
   },
 

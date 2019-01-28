@@ -13,11 +13,12 @@
           >
         </li>
       </ul>
-      <LightBox 
+      <LightBox
         :images="images" 
         ref="lightbox"
         :show-caption="true"
         :show-light-box="false"
+        :zoom="true"
       >
       </LightBox>
     </div>
