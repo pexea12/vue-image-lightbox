@@ -1,4 +1,8 @@
-import Hammer from 'hammerjs'
+let Hammer
+
+if (typeof window !== 'undefined') {
+  Hammer = require('hammerjs')
+}
 
 require('./style.css')
 
