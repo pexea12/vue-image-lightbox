@@ -245,6 +245,8 @@ export default {
   },
 
   beforeDestroy() {
+    this.magnifier = null
+
     document.removeEventListener('keydown', this.addKeyEvent)
 
     if (this.autoPlay) {
