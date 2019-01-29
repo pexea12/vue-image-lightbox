@@ -231,7 +231,6 @@ export default {
     },
 
     enableZoom() {
-
       if (! this.magnifier)
         this.magnifier = new magnifier.Magnifier(new magnifier.Event())
 
