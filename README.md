@@ -185,6 +185,12 @@ How to use:
       <td>Next</td>
       <td>Text for the next thumb image button</td>
     </tr>
+    <tr>
+      <td>zoom</td>
+      <td>Boolean</td>
+      <td>false</td>
+      <td>Enable zoom</td>
+    </tr>
   </tbody>
 </table>
 
@@ -274,7 +280,8 @@ The next button on the thumbs list.
 
 ## CREDITS
 
-Most of the CSS belongs to [react-images](https://github.com/jossmac/react-images)
+* Most of the CSS belongs to [react-images](https://github.com/jossmac/react-images)
+* Magnifier.js belongs to [mark-rolich](http://mark-rolich.github.io/Magnifier.js/)
 
 ### Contributors:
 - [@imcvampire](https://github.com/imcvampire)
@@ -282,3 +289,4 @@ Most of the CSS belongs to [react-images](https://github.com/jossmac/react-image
 - [@jstr14](https://github.com/jstr14)
 - [@PedroBatista333](https://github.com/PedroBatista333)
 - [@vtalbot](https://github.com/vtalbot)
+- [@AnwarElbo](https://github.com/AnwarElbo)
