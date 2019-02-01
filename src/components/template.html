@@ -79,7 +79,7 @@
 
       <div 
         v-for="(image, index) in imagesThumb" 
-        :key="index"
+        :key="typeof image === 'string' ? `${image}${index}` : index"
         :class="'vue-lb-modal-thumbnail' + (select === index ? '-active' : '')" 
         v-lazy:background-image="image"
         v-show="index >= thumbIndex.begin && index <= thumbIndex.end"
