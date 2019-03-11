@@ -24,6 +24,11 @@ export default {
       default: true,
     },
 
+    closable: {
+      type: Boolean,
+      default: true,
+    },
+
     startAt: {
       type: Number,
       default: 0,
@@ -205,6 +210,7 @@ export default {
     },
 
     closeLightBox() {
+      if(!this.closable) return;
       this.$set(this, 'lightBoxOn', false)
     },
 
