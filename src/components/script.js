@@ -90,7 +90,7 @@ export default {
     },
   },
 
-  data: function() {
+  data() {
     return {
       select: this.startAt,
       lightBoxOn: this.showLightBox,
@@ -99,7 +99,7 @@ export default {
   },
 
   computed: {
-    thumbIndex: function() {
+    thumbIndex() {
       const halfDown = Math.floor(this.nThumbs / 2)
 
       if (this.select >= halfDown && this.select < this.images.length - halfDown)
@@ -120,7 +120,7 @@ export default {
       }
     },
 
-    imagesThumb: function() {
+    imagesThumb() {
       if (this.siteLoading) {
         return this.images.map(({thumb}) => ({
           src: thumb,
@@ -134,28 +134,28 @@ export default {
   },
 
   watch: {
-    lightBoxOn: function(value) {
+    lightBoxOn(value) {
       if (document != null) {
         this.onToggleLightBox(value)
       }
     },
 
-    select: function() {
-      if (this.select >= this.images.length - this.lengthToLoadMore - 1)
+    select() {
+      if (this.select >= this.images.length - this.lengthToLoadMore - 1) 
         this.$emit('onLoad')
 
-      if (this.select === this.images.length - 1)
+      if (this.select === this.images.length - 1) 
         this.$emit('onLastIndex')
 
-      if (this.select === 0)
+      if (this.select === 0) 
         this.$emit('onFirstIndex')
 
-      if (this.select === this.startAt)
+      if (this.select === this.startAt) 
         this.$emit('onStartIndex')
     },
   },
 
-  mounted: function() {
+  mounted() {
     if (this.autoPlay) {
       this.timer = setInterval(() => {
         this.nextImage()
@@ -178,7 +178,7 @@ export default {
   },
 
   methods: {
-    onToggleLightBox: function(value) {
+    onToggleLightBox(value) {
       if (this.disableScroll) {
         document.querySelector('html').classList.toggle('no-scroll', value)
       }
@@ -193,31 +193,31 @@ export default {
       }
     },
 
-    showImage: function(index) {
+    showImage(index) {
       this.$set(this, 'lightBoxOn', true)
       this.$set(this, 'select', index)
     },
 
-    addKeyEvent: function(event) {
+    addKeyEvent(event) {
       if (event.keyCode === 37) this.previousImage() // left arrow
       if (event.keyCode === 39) this.nextImage() // right arrow
       if (event.keyCode === 27) this.closeLightBox() // esc
     },
 
-    closeLightBox: function() {
+    closeLightBox() {
       this.$set(this, 'lightBoxOn', false)
     },
 
-    nextImage: function() {
+    nextImage() {
       this.$set(this, 'select', (this.select + 1) % this.images.length)
     },
 
-    previousImage: function() {
+    previousImage() {
       this.$set(this, 'select', (this.select + this.images.length - 1) % this.images.length)
     },
   },
 
-  beforeDestroy: function() {
+  beforeDestroy() {
     document.removeEventListener('keydown', this.addKeyEvent)
 
     if (this.autoPlay) {
