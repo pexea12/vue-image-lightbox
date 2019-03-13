@@ -90,7 +90,7 @@ export default {
     },
   },
 
-  data() {
+  data: function() {
     return {
       select: this.startAt,
       lightBoxOn: this.showLightBox,
@@ -99,7 +99,7 @@ export default {
   },
 
   computed: {
-    thumbIndex() {
+    thumbIndex: function() {
       const halfDown = Math.floor(this.nThumbs / 2)
 
       if (this.select >= halfDown && this.select < this.images.length - halfDown)
@@ -120,7 +120,7 @@ export default {
       }
     },
 
-    imagesThumb() {
+    imagesThumb: function() {
       if (this.siteLoading) {
         return this.images.map(({thumb}) => ({
           src: thumb,
@@ -134,13 +134,13 @@ export default {
   },
 
   watch: {
-    lightBoxOn(value) {
+    lightBoxOn: function(value) {
       if (document != null) {
         this.onToggleLightBox(value)
       }
     },
 
-    select() {
+    select: function() {
       if (this.select >= this.images.length - this.lengthToLoadMore - 1)
         this.$emit('onLoad')
 
@@ -155,7 +155,7 @@ export default {
     },
   },
 
-  mounted() {
+  mounted: function() {
     if (this.autoPlay) {
       this.timer = setInterval(() => {
         this.nextImage()
@@ -178,7 +178,7 @@ export default {
   },
 
   methods: {
-    onToggleLightBox(value) {
+    onToggleLightBox: function(value) {
       if (this.disableScroll) {
         document.querySelector('html').classList.toggle('no-scroll', value)
       }
@@ -193,31 +193,31 @@ export default {
       }
     },
 
-    showImage(index) {
+    showImage: function(index) {
       this.$set(this, 'lightBoxOn', true)
       this.$set(this, 'select', index)
     },
 
-    addKeyEvent(event) {
+    addKeyEvent: function(event) {
       if (event.keyCode === 37) this.previousImage() // left arrow
       if (event.keyCode === 39) this.nextImage() // right arrow
       if (event.keyCode === 27) this.closeLightBox() // esc
     },
 
-    closeLightBox() {
+    closeLightBox: function() {
       this.$set(this, 'lightBoxOn', false)
     },
 
-    nextImage() {
+    nextImage: function() {
       this.$set(this, 'select', (this.select + 1) % this.images.length)
     },
 
-    previousImage() {
+    previousImage: function() {
       this.$set(this, 'select', (this.select + this.images.length - 1) % this.images.length)
     },
   },
 
-  beforeDestroy() {
+  beforeDestroy: function() {
     document.removeEventListener('keydown', this.addKeyEvent)
 
     if (this.autoPlay) {

@@ -31,6 +31,7 @@
   },
   "homepage": "https://github.com/pexea12/vue-image-lightbox",
   "dependencies": {
+    "babel-preset-es2015": "^6.24.1",
     "hammerjs": "^2.0.8",
     "vue-lazyload": "^1.2.6"
   },
