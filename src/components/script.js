@@ -141,16 +141,16 @@ export default {
     },
 
     select() {
-      if (this.select >= this.images.length - this.lengthToLoadMore - 1) 
+      if (this.select >= this.images.length - this.lengthToLoadMore - 1)
         this.$emit('onLoad')
 
-      if (this.select === this.images.length - 1) 
+      if (this.select === this.images.length - 1)
         this.$emit('onLastIndex')
 
-      if (this.select === 0) 
+      if (this.select === 0)
         this.$emit('onFirstIndex')
 
-      if (this.select === this.startAt) 
+      if (this.select === this.startAt)
         this.$emit('onStartIndex')
     },
   },
@@ -175,6 +175,7 @@ export default {
         this.nextImage()
       })
     }
+    alert('asd');
   },
 
   methods: {
