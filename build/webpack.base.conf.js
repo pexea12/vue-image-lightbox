@@ -4,9 +4,10 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 
 module.exports = {
-  entry: {
-    main: path.resolve(__dirname, '../src/main.js'),
-  },
+  // entry: {
+  //   main: path.resolve(__dirname, '../src/main.js'),
+  // },
+  entry: ['babel-polyfill', path.resolve(__dirname, '../src/main.js')],
   output: {
     path: path.resolve(__dirname, '../dist'),
     publicPath: '/',
@@ -55,7 +56,7 @@ module.exports = {
   },
   plugins: [
     new VueLoaderPlugin(),
-    
+
     new webpack.optimize.OccurrenceOrderPlugin(),
 
     new webpack.DefinePlugin({

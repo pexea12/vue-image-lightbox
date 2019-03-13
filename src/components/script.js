@@ -175,7 +175,6 @@ export default {
         this.nextImage()
       })
     }
-    alert('asd');
   },
 
   methods: {
