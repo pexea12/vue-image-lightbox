@@ -55,7 +55,7 @@ module.exports = {
   },
   plugins: [
     new VueLoaderPlugin(),
-    
+
     new webpack.optimize.OccurrenceOrderPlugin(),
 
     new webpack.DefinePlugin({
