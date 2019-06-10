@@ -141,6 +141,8 @@ export default {
     },
 
     select() {
+      this.$emit('onImageChanged', this.select)
+      
       if (this.select >= this.images.length - this.lengthToLoadMore - 1) 
         this.$emit('onLoad')
 
