@@ -182,10 +182,19 @@ export default {
   methods: {
     onToggleLightBox(value) {
       if (this.disableScroll) {
-        document.querySelector('html').classList.toggle('no-scroll', value)
+        if (value) {
+          document.querySelector('html').classList.add('no-scroll')
+        } else {
+          document.querySelector('html').classList.remove('no-scroll')
+        }
       }
-
-      document.querySelector('body').classList.toggle('vue-lb-open', value)
+      
+      if (value) {
+        document.querySelector('body').classList.add('vue-lb-open')
+      } else {
+        document.querySelector('body').classList.remove('vue-lb-open')
+      }
+      
       this.$emit('onOpened', value)
 
       if (value) {
