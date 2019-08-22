@@ -29,7 +29,7 @@
     },
     "lightbox/siteLoading": {
         "description": "default image when your image is error or loading",
-        "type": "boolean"
+        "type": "string"
     },
     "lightbox/showCaption": {
         "description": "Whether to show caption or not",
