@@ -156,6 +156,12 @@ How to use:
       <td>Minimum length unto end to emit load more event</td>
     </tr>
     <tr>
+      <td>closable</td>
+      <td>Boolean</td>
+      <td>true</td>
+      <td>Display the close button at the right top corner or not. ESC clicking-close will also be disabled if closable is set to false.</td>
+    </tr>
+    <tr>
       <td>closeText</td>
       <td>String</td>
       <td>Close (Esc)</td>

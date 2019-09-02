@@ -12,6 +12,7 @@
         type="button" 
         :title="closeText" 
         class="vue-lb-button-close" 
+        v-if="closable"
         >
           <slot name="close">
             <span>
