@@ -29,8 +29,8 @@ config.plugins = (config.plugins || []).concat([
   new UglifyJSPlugin({
     sourceMap: true,
     uglifyOptions: {
+      warnings: false,
       compress: {
-        warnings: false,
         drop_debugger: true,
         drop_console: true,
         global_defs: {
