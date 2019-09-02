@@ -39,7 +39,7 @@
           >
         </transition>
 
-        <slot name="custom-caption">
+        <slot name="customCaption">
           <div
             class="vue-lb-info"
             v-html="images[select].caption"
@@ -51,8 +51,8 @@
           <div class="vue-lb-footer-info"></div>
           <div class="vue-lb-footer-count">
             <slot name="footer"
-                  :current="select + 1"
-                  :total="images.length"
+              :current="select + 1"
+              :total="images.length"
             >
               {{ select + 1 }} / {{ images.length }}
             </slot>

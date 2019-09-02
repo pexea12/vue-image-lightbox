@@ -264,6 +264,9 @@ The previous button on the thumbs list.
 #### nextThumb
 The next button on the thumbs list.
 
+#### customCaption
+The caption of the current image.
+
 ### Events
 
 - `onOpened(value)`: `true` to emit when the lightbox is opened and `false` when it is closed.
@@ -282,3 +285,4 @@ Most of the CSS belongs to [react-images](https://github.com/jossmac/react-image
 - [@jstr14](https://github.com/jstr14)
 - [@PedroBatista333](https://github.com/PedroBatista333)
 - [@vtalbot](https://github.com/vtalbot)
+- [@hasangilak](https://github.com/hasangilak)
