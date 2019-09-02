@@ -39,11 +39,13 @@
           >
         </transition>
 
-        <div 
-          class="vue-lb-info" 
-          v-html="images[select].caption"
-          v-show="showCaption"
-        ></div>
+        <slot name="custom-caption">
+          <div
+            class="vue-lb-info"
+            v-html="images[select].caption"
+            v-show="showCaption"
+          ></div>
+        </slot>
 
         <div class="vue-lb-footer">
           <div class="vue-lb-footer-info"></div>
