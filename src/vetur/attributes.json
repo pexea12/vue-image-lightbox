@@ -1,0 +1,66 @@
+{
+    "lightbox/images": {
+        "description": "Image array to display",
+        "type": "array"
+    },
+    "lightbox/showLightBox": {
+        "description": "Whether to show lightbox or not at the beginning",
+        "type": "boolean"
+    },
+    "lightbox/startAt": {
+        "description": "Index of the image that you want to start at",
+        "type": "number"
+    },
+    "lightbox/nThumbs": {
+        "description": "Number of thumbnail images",
+        "type": "number"
+    },
+    "lightbox/showThumbs": {
+        "description": "Whether to show thumbnails or not",
+        "type": "boolean"
+    },
+    "lightbox/autoPlay": {
+        "description": "Move to next image automatically",
+        "type": "boolean"
+    },
+    "lightbox/autoPlayTime": {
+        "description": "Time to stop at an image before move on to next image",
+        "type": "number"
+    },
+    "lightbox/siteLoading": {
+        "description": "default image when your image is error or loading",
+        "type": "string"
+    },
+    "lightbox/showCaption": {
+        "description": "Whether to show caption or not",
+        "type": "boolean"
+    },
+    "lightbox/disableScroll": {
+        "description": "set to `true` to avoid scrolling views behind lightbox",
+        "type": "boolean"
+    },
+    "lightbox/lengthToLoadMore": {
+        "description": "Minimum length unto end to emit load more event",
+        "type": "number"
+    },
+    "lightbox/closeText": {
+        "description": "Text for the close button",
+        "type": "string"
+    },
+    "lightbox/previousText": {
+        "description": "Text for the previous image button",
+        "type": "string"
+    },
+    "lightbox/nextText": {
+        "description": "Text for the next image button",
+        "type": "string"
+    },
+    "lightbox/previousThumbText": {
+        "description": "Text for the previous thumb image button",
+        "type": "string"
+    },
+    "lightbox/nextThumbText": {
+        "description": "Text for the next thumb image button",
+        "type": "string"
+    }
+}

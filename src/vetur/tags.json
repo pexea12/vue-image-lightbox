@@ -1,0 +1,24 @@
+{
+    "lightbox": {
+        "attributes": [
+            "images",
+            "showLightBox",
+            "startAt",
+            "nThumbs",
+            "showThumbs",
+            "autoPlay",
+            "autoPlayTime",
+            "siteLoading",
+            "showCaption",
+            "disableScroll",
+            "lengthToLoadMore",
+            "closeText",
+            "previousText",
+            "nextText",
+            "previousThumbText",
+            "nextThumbText"
+        ],
+        "subtags": [],
+        "description": "LightBox component"
+    }
+}
