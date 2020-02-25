@@ -1,5 +1,16 @@
 const images = [
   {
+    thumb: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRx1TQ3PfnhWmLUWcxrGj3atDCZVTVBKetMOWVVQ4ipIStW03pY',
+    sources: [
+      {
+        src: 'https://www.w3schools.com/html/mov_bbb.mp4',
+        type: 'video/mp4'
+      }
+    ],
+    type: "video",
+    caption: '<h4>Monsters Inc.</h4>',
+  },
+  {
     thumb: 'https://s3-us-west-1.amazonaws.com/powr/defaults/image-slider2.jpg',
     src: 'https://s3-us-west-1.amazonaws.com/powr/defaults/image-slider2.jpg',
     caption: '<h4>Elephant</h4>',

@@ -7,7 +7,7 @@
           style="display: inline-block"
         >
           <img 
-            v-lazy="image.src" 
+            v-lazy="image.src || image.thumb"
             style="height: 100px" 
             @click="openGallery(index)"
           >
@@ -19,6 +19,19 @@
         :show-caption="true"
         :show-light-box="false"
       >
+        <template slot="video" slot-scope="{sources}">
+          <video
+            controls
+            width="800"
+            height="500"
+          >
+            <source
+              v-for="source in sources"
+              :src="source.src"
+              :type="source.type"
+            />
+          </video>
+        </template>
       </LightBox>
     </div>
   </div>

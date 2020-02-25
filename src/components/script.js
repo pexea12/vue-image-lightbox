@@ -127,14 +127,15 @@ export default {
 
     imagesThumb() {
       if (this.siteLoading) {
-        return this.images.map(({thumb}) => ({
+        return this.images.map(({thumb, type}) => ({
           src: thumb,
+          type,
           loading: this.siteLoading,
           error: this.siteLoading,
         }))
       }
 
-      return this.images.map(({thumb}) => thumb)
+      return this.images.map(({thumb, type}) => ({thumb, type}))
     },
   },
 
@@ -221,6 +222,8 @@ export default {
     },
 
     closeLightBox() {
+      if(this.$refs.video)
+        this.$refs.video.pause();
       if(!this.closable) return;
       this.$set(this, 'lightBoxOn', false)
     },

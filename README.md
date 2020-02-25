@@ -72,6 +72,17 @@ How to use:
     src: 'http://example.com/image.jpg',
     caption: 'caption to display. receive <html> <b>tag</b>', // Optional
     srcset: '...' // Optional for displaying responsive images
+  },
+  {
+    thumb: 'https://s3-us-west-1.amazonaws.com/powr/defaults/image-slider2.jpg',
+    sources: [
+      {
+        src: 'https://www.w3schools.com/html/mov_bbb.mp4',
+        type: 'video/mp4'
+      }
+    ],
+    type: "video",
+    caption: '<h4>Monsters Inc.</h4>',
   }
 ]
 ```
@@ -273,6 +284,12 @@ The next button on the thumbs list.
 #### customCaption
 The caption of the current image.
 
+#### videoIcon
+The Icon used for videos
+
+#### video
+The video player
+
 ### Events
 
 - `onOpened(value)`: `true` to emit when the lightbox is opened and `false` when it is closed.
@@ -294,3 +311,4 @@ Most of the CSS belongs to [react-images](https://github.com/jossmac/react-image
 - [@hasangilak](https://github.com/hasangilak)
 - [@neobutter](https://github.com/neobutter)
 - [@mudin](https://github.com/mudin)
+- [@asterisx](https://github.com/asterisx)
