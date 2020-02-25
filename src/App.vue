@@ -1,38 +1,30 @@
 <template>
-  <div id="app" style="background-color: yellow" class="row">
+  <div
+    id="app"
+    style="background-color: yellow"
+    class="row"
+  >
     <div>
       <ul>
-        <li 
-          v-for="(image, index) in images" 
+        <li
+          v-for="(image, index) in media"
+          :key="index"
           style="display: inline-block"
         >
-          <img 
+          <img
             v-lazy="image.src || image.thumb"
-            style="height: 100px" 
+            style="height: 100px"
             @click="openGallery(index)"
           >
         </li>
       </ul>
-      <LightBox 
-        :images="images" 
+
+      <LightBox
         ref="lightbox"
+        :media="media"
         :show-caption="true"
         :show-light-box="false"
-      >
-        <template slot="video" slot-scope="{sources}">
-          <video
-            controls
-            width="800"
-            height="500"
-          >
-            <source
-              v-for="source in sources"
-              :src="source.src"
-              :type="source.type"
-            />
-          </video>
-        </template>
-      </LightBox>
+      />
     </div>
   </div>
 </template>
@@ -41,7 +33,7 @@
 import LightBox from 'components/LightBox'
 
 import siteLoading from './siteloading.gif'
-import images from './dummy'
+import media from './dummy'
 
 export default {
   components: {
@@ -50,7 +42,7 @@ export default {
 
   data () {
     return {
-      images,
+      media,
       siteLoading,
     }
   },

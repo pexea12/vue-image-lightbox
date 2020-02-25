@@ -1,8 +1,8 @@
 {
   "name": "vue-image-lightbox",
   "description": "A Vue.js package to display an image gallery lightbox",
-  "version": "6.4.0",
-  "author": "Nguyen Thien Dzung <dzungnguyenvn@outlook.com>",
+  "version": "7.0.0",
+  "author": "Nguyen P. Thien Dzung <dzungnguyenvn@outlook.com>",
   "license": "MIT",
   "main": "dist/vue-image-lightbox.min.js",
   "files": [
@@ -12,7 +12,7 @@
   "scripts": {
     "dev": "webpack-dev-server --inline --hot --open --config build/webpack.dev.conf.js --mode development",
     "build": "rimraf dist && webpack --progress --hide-modules --config build/webpack.prod.conf.js --mode production",
-    "lint": "eslint --ext .js,.vue app/"
+    "lint": "eslint --ext .js,.vue src/"
   },
   "repository": {
     "type": "git",
@@ -43,7 +43,8 @@
     "@babel/preset-env": "^7.5.5",
     "copy-webpack-plugin": "5.1.1",
     "css-loader": "3.2.0",
-    "eslint": "6.3.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-vue": "^6.2.1",
     "file-loader": "^4.2.0",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.8.0",

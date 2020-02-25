@@ -1,6 +1,6 @@
 # vue-image-lightbox
-A simple image lightbox component for Vuejs  
-[NPM Package](https://www.npmjs.com/package/vue-image-lightbox)  
+A simple image/video lightbox component for Vuejs
+[NPM Package](https://www.npmjs.com/package/vue-image-lightbox)
 
 I use CSS style from [react-images](https://github.com/jossmac/react-images)
 
@@ -61,19 +61,19 @@ require('vue-image-lightbox/dist/vue-image-lightbox.min.css')
 ```
 How to use:
 ```html
-<LightBox :images="images"></LightBox>
+<LightBox :media="media"></LightBox>
 ```
 
-`images` has the structure:
+`media` has the structure:
 ```javascript
 [
-  {
+  { // For image
     thumb: 'http://example.com/thumb.jpg',
     src: 'http://example.com/image.jpg',
     caption: 'caption to display. receive <html> <b>tag</b>', // Optional
     srcset: '...' // Optional for displaying responsive images
   },
-  {
+  { // For video
     thumb: 'https://s3-us-west-1.amazonaws.com/powr/defaults/image-slider2.jpg',
     sources: [
       {
@@ -83,6 +83,8 @@ How to use:
     ],
     type: "video",
     caption: '<h4>Monsters Inc.</h4>',
+    width: 800, // required
+    height: 600, // required
   }
 ]
 ```
@@ -98,13 +100,13 @@ How to use:
       <th>default</th>
       <th>description</th>
     </tr>
-  </thead>  
+  </thead>
   <tbody>
     <tr>
-      <td>images</td>
+      <td>media</td>
       <td>Array</td>
       <td>required</td>
-      <td>Image array to display</td>
+      <td>Media array to display</td>
     </tr>
     <tr>
       <td>showLightBox</td>
@@ -213,7 +215,7 @@ How to use:
       <th>arguments</th>
       <th>description</th>
     </tr>
-  </thead>  
+  </thead>
   <tbody>
     <tr>
       <td>nextImage</td>
@@ -287,9 +289,6 @@ The caption of the current image.
 #### videoIcon
 The Icon used for videos
 
-#### video
-The video player
-
 ### Events
 
 - `onOpened(value)`: `true` to emit when the lightbox is opened and `false` when it is closed.
@@ -304,7 +303,7 @@ Most of the CSS belongs to [react-images](https://github.com/jossmac/react-image
 
 ### Contributors:
 - [@imcvampire](https://github.com/imcvampire)
-- [@krystalcampioni](https://github.com/krystalcampioni) 
+- [@krystalcampioni](https://github.com/krystalcampioni)
 - [@jstr14](https://github.com/jstr14)
 - [@PedroBatista333](https://github.com/PedroBatista333)
 - [@vtalbot](https://github.com/vtalbot)

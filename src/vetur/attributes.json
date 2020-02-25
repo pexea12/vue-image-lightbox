@@ -1,5 +1,5 @@
 {
-    "lightbox/images": {
+    "lightbox/media": {
         "description": "Image array to display",
         "type": "array"
     },
