@@ -85,6 +85,7 @@ How to use:
     caption: '<h4>Monsters Inc.</h4>',
     width: 800, // required
     height: 600, // required
+    autoplay: true //Optional to autoplay video when lightbox opens
   }
 ]
 ```

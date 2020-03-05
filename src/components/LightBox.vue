@@ -42,6 +42,7 @@
               controls
               :width="media[select].width"
               :height="media[select].height"
+              :autoplay="media[select].autoplay"
             >
               <source
                 v-for="source in media[select].sources"
@@ -365,7 +366,9 @@ export default {
       }
 
       if (value) {
-        document.querySelector('body').classList.add('vue-lb-open')
+				document.querySelector('body').classList.add('vue-lb-open')
+				if (this.$refs.video && this.$refs.video.autoplay)
+            this.$refs.video.play()
       } else {
         document.querySelector('body').classList.remove('vue-lb-open')
       }
@@ -391,8 +394,10 @@ export default {
     },
 
     closeLightBox() {
-      if (this.$refs.video)
-        this.$refs.video.pause();
+      if (this.$refs.video) {
+        this.$refs.video.pause()
+        this.$refs.video.currentTime = '0'
+      }
       if (!this.closable) return;
       this.$set(this, 'lightBoxOn', false)
     },
