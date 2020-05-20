@@ -168,102 +168,102 @@ export default {
     LeftArrowIcon,
     RightArrowIcon,
     CloseIcon,
-    VideoIcon
+    VideoIcon,
   },
 
   props: {
     media: {
       type: Array,
-      required: true
+      required: true,
     },
 
     disableScroll: {
       type: Boolean,
-      default: true
+      default: true,
     },
 
     showLightBox: {
       type: Boolean,
-      default: true
+      default: true,
     },
 
     closable: {
       type: Boolean,
-      default: true
+      default: true,
     },
 
     startAt: {
       type: Number,
-      default: 0
+      default: 0,
     },
 
     nThumbs: {
       type: Number,
-      default: 7
+      default: 7,
     },
 
     showThumbs: {
       type: Boolean,
-      default: true
+      default: true,
     },
 
     // Mode
     autoPlay: {
       type: Boolean,
-      default: false
+      default: false,
     },
 
     autoPlayTime: {
       type: Number,
-      default: 3000
+      default: 3000,
     },
 
     siteLoading: {
       type: Object,
-      default: null
+      default: null,
     },
 
     showCaption: {
       type: Boolean,
-      default: false
+      default: false,
     },
 
     lengthToLoadMore: {
       type: Number,
-      default: 0
+      default: 0,
     },
 
     closeText: {
       type: String,
-      default: 'Close (Esc)'
+      default: 'Close (Esc)',
     },
 
     previousText: {
       type: String,
-      default: 'Previous'
+      default: 'Previous',
     },
 
     nextText: {
       type: String,
-      default: 'Next'
+      default: 'Next',
     },
 
     previousThumbText: {
       type: String,
-      default: 'Previous'
+      default: 'Previous',
     },
 
     nextThumbText: {
       type: String,
-      default: 'Next'
-    }
+      default: 'Next',
+    },
   },
 
   data() {
     return {
       select: this.startAt,
       lightBoxOn: this.showLightBox,
-      timer: null
+      timer: null,
     }
   },
 
@@ -274,18 +274,18 @@ export default {
       if (this.select >= halfDown && this.select < this.media.length - halfDown)
         return {
           begin: this.select - halfDown + (1 - (this.nThumbs % 2)),
-          end: this.select + halfDown
+          end: this.select + halfDown,
         }
 
       if (this.select < halfDown)
         return {
           begin: 0,
-          end: this.nThumbs - 1
+          end: this.nThumbs - 1,
         }
 
       return {
         begin: this.media.length - this.nThumbs,
-        end: this.media.length - 1
+        end: this.media.length - 1,
       }
     },
 
@@ -295,7 +295,7 @@ export default {
           src: thumb,
           type,
           loading: this.siteLoading,
-          error: this.siteLoading
+          error: this.siteLoading,
         }))
       }
 
@@ -324,7 +324,7 @@ export default {
 
       if (this.select === this.startAt)
         this.$emit('onStartIndex')
-    }
+    },
   },
 
   mounted() {
@@ -384,7 +384,7 @@ export default {
 
       if (this.$refs.video) {
         this.$refs.video.pause()
-        this.$refs.video.currentTime = '0'
+        this.$refs.video.currentTime = 0
       }
     },
 
@@ -415,8 +415,8 @@ export default {
 
     previousImage() {
       this.$set(this, 'select', (this.select + this.media.length - 1) % this.media.length)
-    }
-  }
+    },
+  },
 }
 </script>
 
