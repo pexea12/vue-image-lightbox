@@ -11,6 +11,7 @@ const media = [
     caption: '<h4>Monsters Inc.</h4>',
     width: 800,
     height: 600,
+    autoplay: true,
   },
   {
     thumb: 'https://s3-us-west-1.amazonaws.com/powr/defaults/image-slider2.jpg',

@@ -85,6 +85,7 @@ How to use:
     caption: '<h4>Monsters Inc.</h4>',
     width: 800, // required
     height: 600, // required
+    autoplay: true //Optional to autoplay video when lightbox opens
   }
 ]
 ```
@@ -291,7 +292,8 @@ The Icon used for videos
 
 ### Events
 
-- `onOpened(value)`: `true` to emit when the lightbox is opened and `false` when it is closed.
+- `onOpened`: emit when the lightbox is opened.
+- `onClosed`: emit when the lightbox is closed.
 - `onLastIndex`: Emit when the current image is the last one of the list.
 - `onFirstIndex`: Emit when the current image is the first one of the list.
 - `onStartIndex`: Emit when the current image is at the `startAt` index (specified in the properties).

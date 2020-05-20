@@ -42,6 +42,7 @@
               controls
               :width="media[select].width"
               :height="media[select].height"
+              :autoplay="media[select].autoplay"
             >
               <source
                 v-for="source in media[select].sources"
@@ -62,7 +63,10 @@
 
           <div class="vue-lb-footer">
             <div class="vue-lb-footer-info" />
-            <div class="vue-lb-footer-count">
+            <div
+              v-if="media.length > 1"
+              class="vue-lb-footer-count"
+            >
               <slot
                 name="footer"
                 :current="select + 1"
@@ -159,7 +163,6 @@ if (typeof window !== 'undefined') {
   Hammer = require('hammerjs')
 }
 
-
 export default {
   components: {
     LeftArrowIcon,
@@ -227,12 +230,12 @@ export default {
 
     lengthToLoadMore: {
       type: Number,
-      default: 0
+      default: 0,
     },
 
     closeText: {
       type: String,
-      default: 'Close (Esc)'
+      default: 'Close (Esc)',
     },
 
     previousText: {
@@ -247,12 +250,12 @@ export default {
 
     previousThumbText: {
       type: String,
-      default: 'Previous'
+      default: 'Previous',
     },
 
     nextThumbText: {
       type: String,
-      default: 'Next'
+      default: 'Next',
     },
   },
 
@@ -270,7 +273,7 @@ export default {
 
       if (this.select >= halfDown && this.select < this.media.length - halfDown)
         return {
-          begin: this.select - halfDown + (1 - this.nThumbs % 2),
+          begin: this.select - halfDown + (1 - (this.nThumbs % 2)),
           end: this.select + halfDown,
         }
 
@@ -297,7 +300,7 @@ export default {
       }
 
       return this.media.map(({ thumb, type }) => ({ thumb, type }))
-    },
+    }
   },
 
   watch: {
@@ -355,28 +358,39 @@ export default {
   },
 
   methods: {
-    onToggleLightBox(value) {
+    onLightBoxOpen() {
+      this.$emit('onOpened')
+
       if (this.disableScroll) {
-        if (value) {
-          document.querySelector('html').classList.add('no-scroll')
-        } else {
-          document.querySelector('html').classList.remove('no-scroll')
-        }
+        document.querySelector('html').classList.add('no-scroll')
+      }
+      document.querySelector('body').classList.add('vue-lb-open')
+      document.addEventListener('keydown', this.addKeyEvent)
+
+      if (this.$refs.video && this.$refs.video.autoplay) {
+        this.$refs.video.play()
+      }
+    },
+
+    onLightBoxClose() {
+      this.$emit('onClosed')
+
+      if (this.disableScroll) {
+        document.querySelector('html').classList.remove('no-scroll')
       }
 
-      if (value) {
-        document.querySelector('body').classList.add('vue-lb-open')
-      } else {
-        document.querySelector('body').classList.remove('vue-lb-open')
-      }
+      document.querySelector('body').classList.remove('vue-lb-open')
+      document.removeEventListener('keydown', this.addKeyEvent)
 
-      this.$emit('onOpened', value)
-
-      if (value) {
-        document.addEventListener('keydown', this.addKeyEvent)
-      } else {
-        document.removeEventListener('keydown', this.addKeyEvent)
+      if (this.$refs.video) {
+        this.$refs.video.pause()
+        this.$refs.video.currentTime = 0
       }
+    },
+
+    onToggleLightBox(value) {
+      if (value) this.onLightBoxOpen()
+      else this.onLightBoxClose()
     },
 
     showImage(index) {
@@ -391,9 +405,7 @@ export default {
     },
 
     closeLightBox() {
-      if (this.$refs.video)
-        this.$refs.video.pause();
-      if (!this.closable) return;
+      if (!this.closable) return
       this.$set(this, 'lightBoxOn', false)
     },
 
@@ -408,5 +420,4 @@ export default {
 }
 </script>
 
-<style src="./style.css">
-</style>
+<style src="./style.css"></style>
