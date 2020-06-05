@@ -40,6 +40,7 @@
               v-else
               ref="video"
               controls
+              :key="media[select].sources[0].src"
               :width="media[select].width"
               :height="media[select].height"
               :autoplay="media[select].autoplay"
