@@ -17,10 +17,11 @@ const media = [
     thumb: 'https://s3-us-west-1.amazonaws.com/powr/defaults/image-slider2.jpg',
     src: 'https://s3-us-west-1.amazonaws.com/powr/defaults/image-slider2.jpg',
     caption: '<h4>Elephant</h4>',
+    type: 'image/jpg'
   },
   {
     thumb: 'https://i-kinhdoanh.vnecdn.net/2018/06/18/1-1529296929_680x0.jpg',
-    src: 'https://i-kinhdoanh.vnecdn.net/2018/06/18/1-1529296929_680x0.jpg',
+    src: 'https://sandbox.anmup.online/storage/post/f7177163c833dff4b38fc8d2872f1ec6/qfxcinemas-ticket.pdf',
     caption: '<h4>Messi</h4>',
   },
   {

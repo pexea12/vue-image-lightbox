@@ -29,7 +29,7 @@
             name="fade"
           >
             <img
-              v-if="media[select].type !== 'video'"
+              v-if="/image/.test(media[select].type)"
               :key="media[select].src"
               :src="media[select].src"
               :srcset="media[select].srcset || ''"
@@ -37,7 +37,7 @@
               :alt="media[select].caption"
             >
             <video
-              v-else
+              v-else-if="media[select].type == 'video'"
               ref="video"
               controls
               :key="media[select].sources[0].src"
@@ -52,6 +52,15 @@
                 :type="source.type"
               >
             </video>
+
+            <embed
+              v-else
+              ref="object"              
+              :src="media[select].src"
+              class="vue-lb-modal-image"
+            />
+
+            
           </transition>
 
           <slot name="customCaption">
@@ -105,7 +114,7 @@
             @click.stop="showImage(index)"
           >
             <slot
-              v-if="image.type"
+              v-if="image.type=='video'"
               name="videoIcon"
             >
               <VideoIcon />
