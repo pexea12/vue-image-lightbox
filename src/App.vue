@@ -4,6 +4,13 @@
     style="background-color: yellow"
     class="row"
   >
+    <div
+      v-for="i in [0, 1, 2, 3, 4]"
+      :key="i"
+    >
+      <p>{{ paragraphs[0] }}</p>
+      <p>{{ paragraphs[1] }}</p>
+    </div>
     <div>
       <ul>
         <li
@@ -34,7 +41,10 @@
 import LightBox from 'components/LightBox'
 
 import siteLoading from './siteloading.gif'
-import media from './dummy'
+import {
+  media,
+  paragraphs,
+} from './dummy'
 
 export default {
   components: {
@@ -45,6 +55,7 @@ export default {
     return {
       media,
       siteLoading,
+      paragraphs,
     }
   },
 
