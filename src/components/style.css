@@ -81,6 +81,11 @@ img.vue-lb-modal-image {
   -ms-user-select: none;
 }
 
+embed.vue-lb-modal-image {
+  min-width: 80vw;
+  min-height: 80vh;
+}
+
 .vue-lb-info {
   visibility: initial;
   position: absolute;
