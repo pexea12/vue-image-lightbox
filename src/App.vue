@@ -24,6 +24,7 @@
         :media="media"
         :show-caption="true"
         :show-light-box="false"
+        :site-loading="siteLoading"
       />
     </div>
   </div>

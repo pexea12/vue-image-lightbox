@@ -148,7 +148,7 @@ How to use:
     <tr>
       <td>siteLoading</td>
       <td></td>
-      <td>null</td>
+      <td>String</td>
       <td>default image when your image is error or loading</td>
     </tr>
     <tr>

@@ -31,7 +31,11 @@
             <img
               v-if="media[select].type !== 'video'"
               :key="media[select].src"
-              :src="media[select].src"
+              v-lazy="{
+                src: media[select].src,
+                loading: media[select].src,
+                error: media[select].src,
+              }"
               :srcset="media[select].srcset || ''"
               class="vue-lb-modal-image"
               :alt="media[select].caption"
@@ -99,8 +103,8 @@
           <div
             v-for="(image, index) in imagesThumb"
             v-show="index >= thumbIndex.begin && index <= thumbIndex.end"
-            :key="typeof image.thumb === 'string' ? `${image.thumb}${index}` : index"
-            v-lazy:background-image="image.thumb"
+            :key="typeof image.src === 'string' ? `${image.src}${index}` : index"
+            v-lazy:background-image="image"
             :class="'vue-lb-modal-thumbnail' + (select === index ? '-active' : '')"
             @click.stop="showImage(index)"
           >
@@ -220,8 +224,8 @@ export default {
     },
 
     siteLoading: {
-      type: Object,
-      default: null,
+      type: String,
+      default: '',
     },
 
     showCaption: {
@@ -300,7 +304,10 @@ export default {
         }))
       }
 
-      return this.media.map(({ thumb, type }) => ({ thumb, type }))
+      return this.media.map(({ thumb, type }) => ({
+        src: thumb,
+        type,
+      }))
     }
   },
 
