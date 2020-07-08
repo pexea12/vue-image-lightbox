@@ -314,3 +314,6 @@ Most of the CSS belongs to [react-images](https://github.com/jossmac/react-image
 - [@neobutter](https://github.com/neobutter)
 - [@mudin](https://github.com/mudin)
 - [@asterisx](https://github.com/asterisx)
+- [@janosrusiczki](https://github.com/janosrusiczki)
+janosrusiczki)
+janosrusiczki]

@@ -248,15 +248,34 @@ img.vue-lb-modal-image {
   }
 }
 
-.fade-enter-active,
-.fade-leave-active {
+.vue-lb-modal-image-transition-enter-active,
+.vue-lb-modal-image-transition-leave-active {
   transition: opacity .2s ease;
 }
 
-.fade-enter, .fade-leave-to {
+.vue-lb-modal-image-transition-enter,
+.vue-lb-modal-image-transition-leave-to {
   opacity: 0;
 }
 
-.no-scroll {
-  overflow-y: hidden;
+.vue-lb-modal-image-no-transition-enter-active,
+.vue-lb-modal-image-no-transition-leave-active {
+  transition: none;
 }
+
+.vue-lb-modal-image-no-transition-enter,
+.vue-lb-modal-image-no-transition-leave-to {
+  opacity: 0;
+}
+
+.vue-lb-content-transition-enter-active,
+.vue-lb-content-transition-leave-active {
+  transition: opacity .2s ease;
+}
+
+.vue-lb-content-transition-enter,
+.vue-lb-content-transition-leave-to {
+  opacity: 0;
+}
+
+

@@ -1,158 +1,165 @@
 <template>
   <div @click.stop="closeLightBox">
-    <div
-      v-if="media && media.length > 0"
-      v-show="lightBoxOn"
-      ref="container"
-      class="vue-lb-container"
+    <transition
+      mode="out-in"
+      name="vue-lb-content-transition"
+      @afterEnter="enableImageTransition"
+      @beforeLeave="disableImageTransition"
     >
-      <div class="vue-lb-content">
-        <div class="vue-lb-header">
-          <span />
-          <button
-            v-if="closable"
-            type="button"
-            :title="closeText"
-            class="vue-lb-button-close"
-          >
-            <slot name="close">
-              <CloseIcon />
-            </slot>
-          </button> <!-- .vue-lb-button-close -->
-        </div> <!-- .vue-lb-header -->
-        <div
-          class="vue-lb-figure"
-          @click.stop
-        >
-          <transition
-            mode="out-in"
-            name="fade"
-          >
-            <img
-              v-if="media[select].type !== 'video'"
-              :key="media[select].src"
-              v-lazy="{
-                src: media[select].src,
-                loading: media[select].src,
-                error: media[select].src,
-              }"
-              :srcset="media[select].srcset || ''"
-              class="vue-lb-modal-image"
-              :alt="media[select].caption"
+      <div
+        v-if="media && media.length > 0"
+        v-show="lightBoxOn"
+        ref="container"
+        class="vue-lb-container"
+      >
+        <div class="vue-lb-content">
+          <div class="vue-lb-header">
+            <span />
+            <button
+              v-if="closable"
+              type="button"
+              :title="closeText"
+              class="vue-lb-button-close"
             >
-            <video
-              v-else
-              ref="video"
-              controls
-              :key="media[select].sources[0].src"
-              :width="media[select].width"
-              :height="media[select].height"
-              :autoplay="media[select].autoplay"
-            >
-              <source
-                v-for="source in media[select].sources"
-                :key="source.src"
-                :src="source.src"
-                :type="source.type"
-              >
-            </video>
-          </transition>
-
-          <slot name="customCaption">
-            <div
-              v-show="showCaption"
-              class="vue-lb-info"
-              v-html="media[select].caption"
-            />
-          </slot>
-
-          <div class="vue-lb-footer">
-            <div class="vue-lb-footer-info" />
-            <div
-              v-if="media.length > 1"
-              class="vue-lb-footer-count"
-            >
-              <slot
-                name="footer"
-                :current="select + 1"
-                :total="media.length"
-              >
-                {{ select + 1 }} / {{ media.length }}
+              <slot name="close">
+                <CloseIcon />
               </slot>
+            </button> <!-- .vue-lb-button-close -->
+          </div> <!-- .vue-lb-header -->
+          <div
+            class="vue-lb-figure"
+            @click.stop
+          >
+            <transition
+              mode="out-in"
+              :name="modalImageTransitionName"
+            >
+              <img
+                v-if="media[select].type !== 'video'"
+                :key="media[select].src"
+                v-lazy="{
+                  src: media[select].src,
+                  loading: media[select].src,
+                  error: media[select].src,
+                }"
+                :srcset="media[select].srcset || ''"
+                class="vue-lb-modal-image"
+                :alt="media[select].caption"
+              >
+              <video
+                v-else
+                ref="video"
+                controls
+                :key="media[select].sources[0].src"
+                :width="media[select].width"
+                :height="media[select].height"
+                :autoplay="media[select].autoplay"
+              >
+                <source
+                  v-for="source in media[select].sources"
+                  :key="source.src"
+                  :src="source.src"
+                  :type="source.type"
+                >
+              </video>
+            </transition>
+
+            <slot name="customCaption">
+              <div
+                v-show="showCaption"
+                class="vue-lb-info"
+                v-html="media[select].caption"
+              />
+            </slot>
+
+            <div class="vue-lb-footer">
+              <div class="vue-lb-footer-info" />
+              <div
+                v-if="media.length > 1"
+                class="vue-lb-footer-count"
+              >
+                <slot
+                  name="footer"
+                  :current="select + 1"
+                  :total="media.length"
+                >
+                  {{ select + 1 }} / {{ media.length }}
+                </slot>
+              </div>
             </div>
           </div>
-        </div>
-      </div> <!-- .vue-lb-content -->
-      <div class="vue-lb-thumbnail-wrapper">
-        <div
-          v-if="showThumbs"
-          class="vue-lb-thumbnail"
-        >
-          <button
-            v-if="media.length > 1"
-            type="button"
-            class="vue-lb-thumbnail-arrow vue-lb-thumbnail-left"
-            :title="previousThumbText"
-            @click.stop="previousImage()"
-          >
-            <slot name="previousThumb">
-              <LeftArrowIcon />
-            </slot>
-          </button>
-
+        </div> <!-- .vue-lb-content -->
+        <div class="vue-lb-thumbnail-wrapper">
           <div
-            v-for="(image, index) in imagesThumb"
-            v-show="index >= thumbIndex.begin && index <= thumbIndex.end"
-            :key="typeof image.src === 'string' ? `${image.src}${index}` : index"
-            v-lazy:background-image="image"
-            :class="'vue-lb-modal-thumbnail' + (select === index ? '-active' : '')"
-            @click.stop="showImage(index)"
+            v-if="showThumbs"
+            class="vue-lb-thumbnail"
           >
-            <slot
-              v-if="image.type"
-              name="videoIcon"
+            <button
+              v-if="media.length > 1"
+              type="button"
+              class="vue-lb-thumbnail-arrow vue-lb-thumbnail-left"
+              :title="previousThumbText"
+              @click.stop="previousImage()"
             >
-              <VideoIcon />
-            </slot>
-          </div>
+              <slot name="previousThumb">
+                <LeftArrowIcon />
+              </slot>
+            </button>
 
-          <button
-            v-if="media.length > 1"
-            type="button"
-            class="vue-lb-thumbnail-arrow vue-lb-thumbnail-right"
-            :title="nextThumbText"
-            @click.stop="nextImage()"
-          >
-            <slot name="nextThumb">
-              <RightArrowIcon />
-            </slot>
-          </button>
-        </div> <!-- .vue-lb-thumbnail -->
-      </div>
-      <button
-        v-if="media.length > 1"
-        type="button"
-        class="vue-lb-arrow vue-lb-left"
-        :title="previousText"
-        @click.stop="previousImage()"
-      >
-        <slot name="previous">
-          <LeftArrowIcon />
-        </slot>
-      </button>
+            <div
+              v-for="(image, index) in imagesThumb"
+              v-show="index >= thumbIndex.begin && index <= thumbIndex.end"
+              :key="typeof image.src === 'string' ? `${image.src}${index}` : index"
+              v-lazy:background-image="image"
+              :class="'vue-lb-modal-thumbnail' + (select === index ? '-active' : '')"
+              @click.stop="showImage(index)"
+            >
+              <slot
+                v-if="image.type"
+                name="videoIcon"
+              >
+                <VideoIcon />
+              </slot>
+            </div>
 
-      <button
-        v-if="media.length > 1"
-        type="button"
-        class="vue-lb-arrow vue-lb-right"
-        :title="nextText"
-        @click.stop="nextImage()"
-      >
-        <slot name="next">
-          <RightArrowIcon />
-        </slot>
-      </button>
-    </div> <!-- .vue-lb-container -->
+            <button
+              v-if="media.length > 1"
+              type="button"
+              class="vue-lb-thumbnail-arrow vue-lb-thumbnail-right"
+              :title="nextThumbText"
+              @click.stop="nextImage()"
+            >
+              <slot name="nextThumb">
+                <RightArrowIcon />
+              </slot>
+            </button>
+          </div> <!-- .vue-lb-thumbnail -->
+        </div>
+        <button
+          v-if="media.length > 1"
+          type="button"
+          class="vue-lb-arrow vue-lb-left"
+          :title="previousText"
+          @click.stop="previousImage()"
+        >
+          <slot name="previous">
+            <LeftArrowIcon />
+          </slot>
+        </button>
+
+        <button
+          v-if="media.length > 1"
+          type="button"
+          class="vue-lb-arrow vue-lb-right"
+          :title="nextText"
+          @click.stop="nextImage()"
+        >
+          <slot name="next">
+            <RightArrowIcon />
+          </slot>
+        </button>
+      </div> <!-- .vue-lb-container -->
+    </transition>
   </div>
 </template>
 
@@ -269,6 +276,7 @@ export default {
       select: this.startAt,
       lightBoxOn: this.showLightBox,
       timer: null,
+      modalImageTransitionName: 'vue-lb-modal-image-no-transition',
     }
   },
 
@@ -397,13 +405,16 @@ export default {
     },
 
     onToggleLightBox(value) {
-      if (value) this.onLightBoxOpen()
-      else this.onLightBoxClose()
+      if (value) {
+        this.onLightBoxOpen()
+      } else {
+        this.onLightBoxClose()
+      }
     },
 
     showImage(index) {
-      this.$set(this, 'lightBoxOn', true)
       this.$set(this, 'select', index)
+      this.$set(this, 'lightBoxOn', true)
     },
 
     addKeyEvent(event) {
@@ -423,6 +434,14 @@ export default {
 
     previousImage() {
       this.$set(this, 'select', (this.select + this.media.length - 1) % this.media.length)
+    },
+
+    enableImageTransition() {
+      this.$set(this, 'modalImageTransitionName', 'vue-lb-modal-image-transition')
+    },
+
+    disableImageTransition() {
+      this.$set(this, 'modalImageTransitionName', 'vue-lb-modal-image-no-transition')
     },
   },
 }
