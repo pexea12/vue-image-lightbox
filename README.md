@@ -205,6 +205,12 @@ How to use:
       <td>Next</td>
       <td>Text for the next thumb image button</td>
     </tr>
+    <tr>
+      <td>showFooterCount</td>
+      <td>Boolean</td>
+      <td>true</td>
+      <td>Show footer count</td>
+    </tr>
   </tbody>
 </table>
 

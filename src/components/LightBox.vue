@@ -7,7 +7,7 @@
       @beforeLeave="disableImageTransition"
     >
       <div
-        v-if="media && media.length > 0"
+        v-if="media"
         v-show="lightBoxOn"
         ref="container"
         class="vue-lb-container"
@@ -75,8 +75,8 @@
             <div class="vue-lb-footer">
               <div class="vue-lb-footer-info" />
               <div
-                v-if="media.length > 1"
                 class="vue-lb-footer-count"
+                v-show="showFooterCount"
               >
                 <slot
                   name="footer"
@@ -215,6 +215,11 @@ export default {
     },
 
     showThumbs: {
+      type: Boolean,
+      default: true,
+    },
+
+    showFooterCount: {
       type: Boolean,
       default: true,
     },
