@@ -61,7 +61,7 @@ require('vue-image-lightbox/dist/vue-image-lightbox.min.css')
 ```
 How to use:
 ```html
-<LightBox :media="media"></LightBox>
+<light-box :media="media"></light-box>
 ```
 
 `media` has the structure:
