@@ -75,8 +75,8 @@
             <div class="vue-lb-footer">
               <div class="vue-lb-footer-info" />
               <div
-                class="vue-lb-footer-count"
                 v-show="showFooterCount"
+                class="vue-lb-footer-count"
               >
                 <slot
                   name="footer"
@@ -190,6 +190,11 @@ export default {
     },
 
     disableScroll: {
+      type: Boolean,
+      default: true,
+    },
+
+    disableZoom: {
       type: Boolean,
       default: true,
     },
@@ -358,8 +363,12 @@ export default {
     this.onToggleLightBox(this.lightBoxOn)
 
     if (this.$refs.container) {
-      const hammer = new Hammer(this.$refs.container)
+      const options = {}
+      if (!this.disableZoom) {
+        options.touchAction = 'pan-x, pan-y'
+      }
 
+      const hammer = new Hammer(this.$refs.container, options)
       hammer.on('swiperight', () => {
         this.previousImage()
       })
