@@ -163,6 +163,11 @@ How to use:
       <td>true</td>
       <td>set to `true` to avoid scrolling views behind lightbox</td>
     </tr>
+     <td>disableZoom</td>
+      <td>Boolean</td>
+      <td>true</td>
+      <td>set to `true` to avoid zooming lightbox</td>
+    </tr>
     <tr>
       <td>lengthToLoadMore</td>
       <td>Number</td>
