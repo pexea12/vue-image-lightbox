@@ -279,6 +279,11 @@ export default {
       type: String,
       default: 'Next',
     },
+
+    resetSelectedOnClose: {
+      type: Boolean,
+      default: false
+    }
   },
 
   data() {
@@ -390,6 +395,10 @@ export default {
   methods: {
     onLightBoxOpen() {
       this.$emit('onOpened')
+
+      if(this.resetSelectedOnClose) {
+        this.select = this.startAt
+      }
 
       if (this.disableScroll) {
         document.querySelector('html').classList.add('no-scroll')
