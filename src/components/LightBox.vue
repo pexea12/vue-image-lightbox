@@ -7,7 +7,7 @@
       @beforeLeave="disableImageTransition"
     >
       <div
-        v-if="media"
+        v-if="media && media.length > 0"
         v-show="lightBoxOn"
         ref="container"
         class="vue-lb-container"
