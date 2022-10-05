@@ -396,7 +396,7 @@ export default {
     onLightBoxOpen() {
       this.$emit('onOpened')
 
-      if(this.resetSelectedOnClose) {
+      if (this.resetSelectedOnClose) {
         this.select = this.startAt
       }
 
