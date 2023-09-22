@@ -19,7 +19,8 @@
           style="display: inline-block"
         >
           <img
-            v-lazy="image.src || image.thumb"
+<!--            v-lazy="image.src || image.thumb"-->
+          :src="image.src || image.thumb"
             style="height: 100px"
             @click="openGallery(index)"
           >

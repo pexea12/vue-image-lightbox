@@ -37,11 +37,11 @@
               <img
                 v-if="media[select].type !== 'video'"
                 :key="media[select].src"
-                v-lazy="{
-                  src: media[select].src,
-                  loading: media[select].src,
-                  error: media[select].src,
-                }"
+<!--                v-lazy="{-->
+<!--                  src: media[select].src,-->
+<!--                  loading: media[select].src,-->
+<!--                  error: media[select].src,-->
+<!--                }"-->
                 :srcset="media[select].srcset || ''"
                 class="vue-lb-modal-image"
                 :alt="media[select].caption"
@@ -105,12 +105,13 @@
                 <LeftArrowIcon />
               </slot>
             </button>
-
+___
             <div
               v-for="(image, index) in imagesThumb"
               v-show="index >= thumbIndex.begin && index <= thumbIndex.end"
               :key="typeof image.src === 'string' ? `${image.src}${index}` : index"
-              v-lazy:background-image="image"
+<!--              v-lazy:background-image="image"-->
+              :background-image="image"
               :class="'vue-lb-modal-thumbnail' + (select === index ? '-active' : '')"
               @click.stop="showImage(index)"
             >
@@ -118,6 +119,12 @@
                 v-if="image.type"
                 name="videoIcon"
               >
+
+                <div
+                    class="vue-lb-info"
+                    v-html="media[index].caption"
+                />
+
                 <VideoIcon />
               </slot>
             </div>
